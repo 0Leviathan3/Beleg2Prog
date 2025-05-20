@@ -8,6 +8,7 @@ class Person : public Medium {
 
 public:
     Person(const string& name, int age);
+    Person(const Person& other);
     ~Person(); // Destructor
     void displayInfo() const;
 

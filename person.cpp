@@ -3,7 +3,11 @@
 using namespace std;
 #include "person.h"
 
-Person::Person(const string& name, int age) : name(name), age(age) {}
+Person::Person(const char* name, int age) : name(name), age(age) {}
+Person::Person(const Person& other) {
+    name = other.name;
+    age = other.age;
+}
 
 void Person::displayInfo() const {
     cout << "Name: " << name << "\nAge: " << age << endl;
