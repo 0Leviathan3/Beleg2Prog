@@ -7,14 +7,13 @@
 class CD : public Medium {
 
 public:
-    CD(const string& artist, const string& title, int duration);
+    CD(string artist, string title, int duration);
     ~CD(); // Destructor
     void displayInfo() const;
 
 private:
-    string artist;
-    string title;
     int duration;
+    string artist;
 };
 
 #endif // CD_H

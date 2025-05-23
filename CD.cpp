@@ -2,7 +2,11 @@
 #include <iostream>
 using namespace std;
 #include "CD.h"
-CD::CD(const string& artist, const string& title, int duration)
+
+
+Medium::Medium(const string& title) : title(title) {}
+
+CD::CD(string artist, string title, int duration)
     : Medium(title), artist(artist), duration(duration) {}
 CD::~CD() {
     cout << "Destructor called for CD: " << title << endl;
