@@ -1,13 +1,26 @@
-#include "book.h"
+#include "medium.h"
 #include <iostream>
 using namespace std;
+#include "book.h"
 
-Book::Book(const string& title, const string& author, int pages)
-    : Medium(title), author(author), pages(pages) {}
-
-void Book::displayDetails() const {
-    cout << "Book: " << title << "\nAuthor: " << author << "\nPages: " << pages << endl;
+book::book(string artist, string title, int ISBN)
+    : Medium(title) // <--- Elternklasse richtig aufrufen!
+{
+    this->artist = artist;
+    this->ISBN = ISBN;
 }
-Book::~Book() {
-    cout << "Destructor called for Book: " << title << endl;
+book::~book(){
+    cout << "Destructor called for book: " << this->getTitle() << endl;
 }
+void book:: displayInfo() const{}
+    string book::getTitle(){
+        return title;
+    }
+    string book::getArtist(){
+        return artist;
+    }
+    void book::setTitle(const string& newTitle){
+        
+    }
+    void book::setArtist(const string& newArtist);
+    void book::setDuration(int newISBN);

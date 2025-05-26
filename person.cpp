@@ -15,7 +15,7 @@ Person::~Person(){
     // Destructor
 }
 // Ein Setter für den Namen, so fein,
-// Aktualisiert den Namen, soll es sein.
+// Aktualisiert den Namen, soll es sein.i
 void Person::setName(const string& newName){
     name = newName;
 }

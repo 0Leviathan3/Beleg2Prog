@@ -3,14 +3,36 @@
 using namespace std;
 #include "CD.h"
 
-
-Medium::Medium(const string& title) : title(title) {}
-
 CD::CD(string artist, string title, int duration)
-    : Medium(title), artist(artist), duration(duration) {}
+    : Medium(title) // <--- Elternklasse richtig aufrufen!
+{
+    this->artist = artist;
+    this->duration = duration;
+}
 CD::~CD() {
-    cout << "Destructor called for CD: " << title << endl;
+
+    // Destructor
 }
 void CD::displayInfo() const {
-    cout << "CD: " << title << "\nArtist: " << artist << "\nDuration: " << duration << " minutes" << endl;
+    cout << "CD Title: " << title << ", Artist: " << artist 
+         << ", Duration: " << duration << " minutes" << endl;
+}
+
+string CD::getTitle() {
+    return title;
+}
+string CD::getArtist() {
+    return artist;
+}
+int CD::getDuration() const {
+    return duration;
+}
+void CD::setTitle(const string& newTitle) {
+    title = newTitle;
+}
+void CD::setArtist(const string& newArtist) {
+    artist = newArtist;
+}
+void CD::setDuration(int newDuration) {
+    duration = newDuration;
 }

@@ -3,5 +3,7 @@
 #include "medium.h"
 using namespace std;
 
-Medium::Medium(const string title) : title(title) {}
+Medium::Medium(string title) {
+    this->title = title;
+}
 
