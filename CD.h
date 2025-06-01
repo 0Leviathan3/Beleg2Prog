@@ -5,22 +5,21 @@
 #include <string>
 
 class CD : public Medium {
-
 public:
-    CD(string artist, string title, int duration);
-    ~CD(); // Destructor
+    CD(string artist, string title, int duration, string album);
+    ~CD();
     void displayInfo() const;
-    string getTitle();
-    string getArtist();
     int getDuration() const;
-    void setTitle(const string& newTitle);
-    void setArtist(const string& newArtist);
+    string getArtist();
+    string getAlbum();
     void setDuration(int newDuration);
-    
-    // Getter and Setter methods for title, artist, and duration
+    void setArtist(const string& newArtist);
+    void setAlbum(const string& newAlbum);
+
 private:
-    int duration;
-    string artist;
+int duration; // Duration of the CD in minutes
+string artist; // Artist of the CD
+string album; // Album of the CD
 };
 
 #endif // CD_H

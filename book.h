@@ -7,19 +7,20 @@
 class book : public Medium {
 
 public:
-    book(string artist, string title, int ISBN);
-    ~book(); // Destructor
+    book(string titel,int ISBN, string author, int pages);
     void displayInfo() const;
-    string getTitle();
-    string getArtist();
-    void setTitle(const string& newTitle);
-    void setArtist(const string& newArtist);
-    void setDuration(int newISBN);
+    int getISBN() const;
+    string getAuthor() const;
+    int getPages() const;
+    void setISBN(int newISBN);
+    void setAuthor(const string& newAuthor);
+    void setPages(int newPages);
     
     // Getter and Setter methods for title, artist, and duration
 private:
     int ISBN;
-    string artist;
+    string author;
+    int pages; // Number of pages in the book
 };
 
 #endif // book_h

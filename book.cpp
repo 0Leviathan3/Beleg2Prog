@@ -3,24 +3,38 @@
 using namespace std;
 #include "book.h"
 
-book::book(string artist, string title, int ISBN)
-    : Medium(title) // <--- Elternklasse richtig aufrufen!
-{
-    this->artist = artist;
-    this->ISBN = ISBN;
+book::book(string titel, int ISBN, string author, int pages) 
+    : Medium(titel, "Book"), ISBN(ISBN), author(author), pages(pages) {
+    // Constructor implementation
 }
-book::~book(){
-    cout << "Destructor called for book: " << this->getTitle() << endl;
+book::~book() {
+    // Destructor implementation
 }
-void book:: displayInfo() const{}
-    string book::getTitle(){
-        return title;
-    }
-    string book::getArtist(){
-        return artist;
-    }
-    void book::setTitle(const string& newTitle){
-        
-    }
-    void book::setArtist(const string& newArtist);
-    void book::setDuration(int newISBN);
+void book::displayInfo() const {
+    cout << "Author: " << author 
+         << ", Title: " << title 
+         << ", Pages: " << pages 
+        << ", ISBN: " << ISBN
+            << ", ID: " << id 
+            << ", Genre: " << genre << endl;
+}
+int book::getISBN() const {
+    return ISBN;
+}
+string book::getAuthor() const {
+    return author;
+}
+int book::getPages() const {
+    return pages;
+}
+void book::setISBN(int newISBN) {
+    ISBN = newISBN;
+}
+void book::setAuthor(const string& newAuthor) {
+    author = newAuthor;
+}
+void book::setPages(int newPages) {
+    pages = newPages;
+}
+
+    

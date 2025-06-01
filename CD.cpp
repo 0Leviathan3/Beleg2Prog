@@ -3,36 +3,35 @@
 using namespace std;
 #include "CD.h"
 
-CD::CD(string artist, string title, int duration)
-    : Medium(title) // <--- Elternklasse richtig aufrufen!
-{
-    this->artist = artist;
-    this->duration = duration;
-}
+CD::CD(string artist, string title, int duration, string album):Medium(title, "CD"), 
+    artist(artist), duration(duration), album(album) {
+    }
 CD::~CD() {
-
-    // Destructor
-}
+    // Destructor implementation
+}// ich arbeite mit strings deshalb kein destruktor
 void CD::displayInfo() const {
-    cout << "CD Title: " << title << ", Artist: " << artist 
-         << ", Duration: " << duration << " minutes" << endl;
-}
-
-string CD::getTitle() {
-    return title;
-}
-string CD::getArtist() {
-    return artist;
+    cout << "Artist: " << artist 
+         << ", Title: " << title 
+         << ", Duration: " << duration 
+         << " minutes, Album: " << album 
+         << ", ID: " << id 
+         << ", Genre: " << genre << endl;
 }
 int CD::getDuration() const {
     return duration;
 }
-void CD::setTitle(const string& newTitle) {
-    title = newTitle;
+string CD::getArtist() {
+    return artist;
+}
+string CD::getAlbum() {
+    return album;
+}
+void CD::setDuration(int newDuration) {
+    duration = newDuration;
 }
 void CD::setArtist(const string& newArtist) {
     artist = newArtist;
 }
-void CD::setDuration(int newDuration) {
-    duration = newDuration;
+void CD::setAlbum(const string& newAlbum) {
+    album = newAlbum;
 }

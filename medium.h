@@ -4,7 +4,7 @@
 
 class Medium {
 public:
-    Medium(string titel, string autor, string genre);
+    Medium(string titel, string genre);
     virtual ~Medium();
     virtual void displayDetails();
     string getTitle() const;
@@ -18,7 +18,6 @@ public:
 
 protected:
     string title;
-    string autor;
     int id; // Unique identifier for each medium
     static int nextId; // Static member to keep track of the next ID
     string genre;
