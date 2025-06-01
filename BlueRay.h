@@ -8,14 +8,20 @@
 class BlueRay : public Medium {
 
 public:
-    BlueRay(const std::string& title, int resolution, int duration);
-    ~BlueRay(); // Destructor
+   BlueRay(string director, string title, int duration, int FSK);
     void displayInfo() const;
+    int getDuration() const;
+    string getDirector() const;
+    int getFSK() const;
+    void setDuration(int newDuration);
+    void setDirector(const string& newDirector);
+    void setFSK(int newFSK);
 
 private:
-    std::string title;
-    int resolution;
+    string director;
     int duration;
+    int FSK;
+
 };
 
 #endif // BLUERAY_H
