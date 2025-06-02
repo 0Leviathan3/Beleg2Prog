@@ -6,16 +6,14 @@ using namespace std;
 CD::CD(string artist, string title, int duration, string album):Medium(title, "CD"), 
     artist(artist), duration(duration), album(album) {
     }
-CD::~CD() {
-    // Destructor implementation
-}// ich arbeite mit strings deshalb kein destruktor
+
 void CD::displayInfo() const {
     cout << "Artist: " << artist 
          << ", Title: " << title 
          << ", Duration: " << duration 
          << " minutes, Album: " << album 
          << ", ID: " << id 
-         << ", Genre: " << genre << endl;
+         << ", Type: " << type << endl;
 }
 int CD::getDuration() const {
     return duration;

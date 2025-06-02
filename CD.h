@@ -7,7 +7,6 @@
 class CD : public Medium {
 public:
     CD(string artist, string title, int duration, string album);
-    ~CD();
     void displayInfo() const;
     int getDuration() const;
     string getArtist();

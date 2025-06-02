@@ -18,7 +18,7 @@ public:
     
     // Getter and Setter methods for title, artist, and duration
 private:
-    int ISBN;
+    int ISBN;// muss ein string werden da auch null vorne stehen kann 
     string author;
     int pages; // Number of pages in the book
 };

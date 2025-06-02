@@ -11,9 +11,7 @@ Person::Person(const Person& other){
     this->name = other.name;
     this->age = other.age;
 }
-Person::~Person(){
-    // Destructor
-}
+
 // Ein Setter für den Namen, so fein,
 // Aktualisiert den Namen, soll es sein.i
 void Person::setName(const string& newName){

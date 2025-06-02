@@ -8,7 +8,6 @@ class Person{
 public:
     Person(string name, int age);// Constructor
     Person(const Person& other);// Copy constructor
-    ~Person(); // Destructor
     void displayInfo() const;
     void setName(const string& newName);
     string getName() const;

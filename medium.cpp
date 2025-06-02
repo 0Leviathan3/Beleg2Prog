@@ -1,19 +1,18 @@
 #include <iostream>
+#include <string>
 using namespace std;
 #include "medium.h"
 
 int Medium::nextId = 1; // Static member to keep track of the next ID
 
-Medium::Medium(string titel, string genre) 
-    : title(titel), id(nextId++), genre(genre) {
+Medium::Medium(string titel, string type) 
+    : title(titel), id(nextId++), type(type) {
     // Constructor implementation
 }
-Medium::~Medium() {
-    // Destructor implementation
-}
+
 void Medium::displayDetails() {
     cout << "Title: " << title  
-         << ", ID: " << id << ", Genre: " << genre << endl;
+         << ", ID: " << id << ", type: " << type << endl;
 }
 string Medium::getTitle() const {
     return title;
@@ -23,8 +22,8 @@ string Medium::getTitle() const {
 int Medium::getId() const {
     return id;
 }
-string Medium::getGenre() const {
-    return genre;
+string Medium::gettype() const {
+    return type;
 }
 void Medium::setTitle(const string& newTitle) {
     title = newTitle;
@@ -33,8 +32,8 @@ void Medium::setTitle(const string& newTitle) {
 void Medium::setId(int newId) {
     id = newId;
 }
-void Medium::setGenre(const string& newGenre) {
-    genre = newGenre;
+void Medium::settype(const string& newtype) {
+    type = newtype;
 }
 
 

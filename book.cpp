@@ -7,16 +7,14 @@ book::book(string titel, int ISBN, string author, int pages)
     : Medium(titel, "Book"), ISBN(ISBN), author(author), pages(pages) {
     // Constructor implementation
 }
-book::~book() {
-    // Destructor implementation
-}
+
 void book::displayInfo() const {
     cout << "Author: " << author 
          << ", Title: " << title 
          << ", Pages: " << pages 
         << ", ISBN: " << ISBN
             << ", ID: " << id 
-            << ", Genre: " << genre << endl;
+            << ", Type: " << type << endl;
 }
 int book::getISBN() const {
     return ISBN;
