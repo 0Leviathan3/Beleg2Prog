@@ -1,0 +1,30 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/beleg_2_semester_autogen.dir/AutogenUsed.txt"
+  "CMakeFiles/beleg_2_semester_autogen.dir/ParseCache.txt"
+  "beleg_2_semester_autogen"
+  "CMakeFiles/beleg_2_semester.dir/BlueRay.cpp.o"
+  "CMakeFiles/beleg_2_semester.dir/BlueRay.cpp.o.d"
+  "CMakeFiles/beleg_2_semester.dir/CD.cpp.o"
+  "CMakeFiles/beleg_2_semester.dir/CD.cpp.o.d"
+  "CMakeFiles/beleg_2_semester.dir/beleg_2_semester_autogen/mocs_compilation.cpp.o"
+  "CMakeFiles/beleg_2_semester.dir/beleg_2_semester_autogen/mocs_compilation.cpp.o.d"
+  "CMakeFiles/beleg_2_semester.dir/book.cpp.o"
+  "CMakeFiles/beleg_2_semester.dir/book.cpp.o.d"
+  "CMakeFiles/beleg_2_semester.dir/main.cpp.o"
+  "CMakeFiles/beleg_2_semester.dir/main.cpp.o.d"
+  "CMakeFiles/beleg_2_semester.dir/mainwindow.cpp.o"
+  "CMakeFiles/beleg_2_semester.dir/mainwindow.cpp.o.d"
+  "CMakeFiles/beleg_2_semester.dir/medium.cpp.o"
+  "CMakeFiles/beleg_2_semester.dir/medium.cpp.o.d"
+  "CMakeFiles/beleg_2_semester.dir/person.cpp.o"
+  "CMakeFiles/beleg_2_semester.dir/person.cpp.o.d"
+  "beleg_2_semester"
+  "beleg_2_semester.pdb"
+  "beleg_2_semester_autogen/mocs_compilation.cpp"
+  "beleg_2_semester_autogen/timestamp"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/beleg_2_semester.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

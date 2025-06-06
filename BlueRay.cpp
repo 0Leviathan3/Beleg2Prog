@@ -13,7 +13,7 @@ void BlueRay::displayInfo() const {
          << ", Duration: " << duration 
          << " minutes, FSK: " << FSK 
          << ", ID: " << id 
-         << ", Genre: " << type << endl;
+         << ", Type: " << type << endl;
 }
 int BlueRay::getDuration() const {
     return duration;

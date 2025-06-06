@@ -6,16 +6,16 @@
 class Person{
 
 public:
-    Person(string name, int age);// Constructor
+    Person(std::string name, int age);// Constructor
     Person(const Person& other);// Copy constructor
     void displayInfo() const;
-    void setName(const string& newName);
-    string getName() const;
+    void setName(const std::string& newName);
+    std::string getName() const;
     void setAge(int newAge);
     int getAge() const;
 
 private:
-    string name;
+    std::string name;
     int age;
 };
 
