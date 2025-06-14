@@ -9,8 +9,8 @@ public:
     CD(string artist, string title, int duration, string album);
     void displayInfo() const;
     int getDuration() const;
-    string getArtist();
-    string getAlbum();
+    string getArtist()const;
+    string getAlbum()const;
     void setDuration(int newDuration);
     void setArtist(const string& newArtist);
     void setAlbum(const string& newAlbum);

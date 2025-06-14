@@ -50,6 +50,8 @@ int main(int argc, char *argv[]) {
 
 Person p1("John", 30);
     Person p2("Jane", 25);
+    BlueRay blueRay1("Inception","Goethe", 148, 12);
+    BlueRay blueRay2("The Matrix"," bla", 136, 18);
 
     QApplication app(argc, argv);
 
@@ -57,6 +59,12 @@ Person p1("John", 30);
     
     window.addPerson(p1);
     window.addPerson(p2);
+    window.addCD(cd1);
+    window.addCD(cd2);
+    window.addBook(book1);
+    window.addBook(book2);
+    window.addBlueRay(blueRay1);
+    window.addBlueRay(blueRay2);
 
     window.show();
     return app.exec();

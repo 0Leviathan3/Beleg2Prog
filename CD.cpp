@@ -18,10 +18,10 @@ void CD::displayInfo() const {
 int CD::getDuration() const {
     return duration;
 }
-string CD::getArtist() {
+string CD::getArtist() const {
     return artist;
 }
-string CD::getAlbum() {
+string CD::getAlbum() const {
     return album;
 }
 void CD::setDuration(int newDuration) {

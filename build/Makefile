@@ -251,6 +251,102 @@ book.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/book.cpp.s
 .PHONY : book.cpp.s
 
+eingabefenster.o: eingabefenster.cpp.o
+.PHONY : eingabefenster.o
+
+# target to build an object file
+eingabefenster.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/eingabefenster.cpp.o
+.PHONY : eingabefenster.cpp.o
+
+eingabefenster.i: eingabefenster.cpp.i
+.PHONY : eingabefenster.i
+
+# target to preprocess a source file
+eingabefenster.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/eingabefenster.cpp.i
+.PHONY : eingabefenster.cpp.i
+
+eingabefenster.s: eingabefenster.cpp.s
+.PHONY : eingabefenster.s
+
+# target to generate assembly for a file
+eingabefenster.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/eingabefenster.cpp.s
+.PHONY : eingabefenster.cpp.s
+
+fenster1.o: fenster1.cpp.o
+.PHONY : fenster1.o
+
+# target to build an object file
+fenster1.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/fenster1.cpp.o
+.PHONY : fenster1.cpp.o
+
+fenster1.i: fenster1.cpp.i
+.PHONY : fenster1.i
+
+# target to preprocess a source file
+fenster1.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/fenster1.cpp.i
+.PHONY : fenster1.cpp.i
+
+fenster1.s: fenster1.cpp.s
+.PHONY : fenster1.s
+
+# target to generate assembly for a file
+fenster1.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/fenster1.cpp.s
+.PHONY : fenster1.cpp.s
+
+fenster2.o: fenster2.cpp.o
+.PHONY : fenster2.o
+
+# target to build an object file
+fenster2.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/fenster2.cpp.o
+.PHONY : fenster2.cpp.o
+
+fenster2.i: fenster2.cpp.i
+.PHONY : fenster2.i
+
+# target to preprocess a source file
+fenster2.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/fenster2.cpp.i
+.PHONY : fenster2.cpp.i
+
+fenster2.s: fenster2.cpp.s
+.PHONY : fenster2.s
+
+# target to generate assembly for a file
+fenster2.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/fenster2.cpp.s
+.PHONY : fenster2.cpp.s
+
+fenster3.o: fenster3.cpp.o
+.PHONY : fenster3.o
+
+# target to build an object file
+fenster3.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/fenster3.cpp.o
+.PHONY : fenster3.cpp.o
+
+fenster3.i: fenster3.cpp.i
+.PHONY : fenster3.i
+
+# target to preprocess a source file
+fenster3.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/fenster3.cpp.i
+.PHONY : fenster3.cpp.i
+
+fenster3.s: fenster3.cpp.s
+.PHONY : fenster3.s
+
+# target to generate assembly for a file
+fenster3.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/fenster3.cpp.s
+.PHONY : fenster3.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -370,6 +466,18 @@ help:
 	@echo "... book.o"
 	@echo "... book.i"
 	@echo "... book.s"
+	@echo "... eingabefenster.o"
+	@echo "... eingabefenster.i"
+	@echo "... eingabefenster.s"
+	@echo "... fenster1.o"
+	@echo "... fenster1.i"
+	@echo "... fenster1.s"
+	@echo "... fenster2.o"
+	@echo "... fenster2.i"
+	@echo "... fenster2.s"
+	@echo "... fenster3.o"
+	@echo "... fenster3.i"
+	@echo "... fenster3.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
