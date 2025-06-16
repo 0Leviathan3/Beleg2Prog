@@ -19,11 +19,8 @@ add_executable(beleg_2_semester
             book.cpp 
             BlueRay.cpp 
             medium.cpp 
-            mainwindow.cpp 
-            fenster1.cpp 
-            fenster2.cpp 
-            fenster3.cpp 
-            eingabefenster.cpp)
+            mainwindow.cpp
+            eingabe.cpp)
 
 find_package(Qt6 REQUIRED COMPONENTS Core Widgets)
 target_link_libraries(beleg_2_semester Qt6::Widgets)
