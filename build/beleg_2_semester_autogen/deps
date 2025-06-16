@@ -10,14 +10,8 @@ beleg_2_semester_autogen/timestamp: \
 	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/build/CMakeFiles/3.28.3/CMakeCXXCompiler.cmake \
 	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/build/CMakeFiles/3.28.3/CMakeSystem.cmake \
 	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/build/beleg_2_semester_autogen/moc_predefs.h \
-	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/eingabefenster.cpp \
-	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/eingabefenster.h \
-	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/fenster1.cpp \
-	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/fenster1.h \
-	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/fenster2.cpp \
-	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/fenster2.h \
-	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/fenster3.cpp \
-	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/fenster3.h \
+	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/eingabe.cpp \
+	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/eingabe.h \
 	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/main.cpp \
 	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/mainwindow.cpp \
 	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/mainwindow.h \
@@ -340,6 +334,7 @@ beleg_2_semester_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qglobalstatic.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qhash.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qhashfunctions.h \
+	/usr/include/x86_64-linux-gnu/qt6/QtCore/qiodevice.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qiodevicebase.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qitemselectionmodel.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtCore/qiterable.h \
@@ -409,27 +404,25 @@ beleg_2_semester_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qkeysequence.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qpaintdevice.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qpalette.h \
-	/usr/include/x86_64-linux-gnu/qt6/QtGui/qpen.h \
+	/usr/include/x86_64-linux-gnu/qt6/QtGui/qpicture.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qpixelformat.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qpixmap.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qpolygon.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qregion.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qrgb.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qrgba64.h \
-	/usr/include/x86_64-linux-gnu/qt6/QtGui/qtextcursor.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qtextdocument.h \
-	/usr/include/x86_64-linux-gnu/qt6/QtGui/qtextformat.h \
-	/usr/include/x86_64-linux-gnu/qt6/QtGui/qtextoption.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qtgui-config.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qtguiexports.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qtguiglobal.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qtransform.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qvalidator.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qwindowdefs.h \
-	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLineEdit \
+	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLabel \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QListWidget \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMainWindow \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QPushButton \
+	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QVBoxLayout \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractbutton.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractitemdelegate.h \
@@ -437,8 +430,12 @@ beleg_2_semester_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractscrollarea.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractslider.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractspinbox.h \
+	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qboxlayout.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qframe.h \
-	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlineedit.h \
+	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgridlayout.h \
+	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlabel.h \
+	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlayout.h \
+	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlayoutitem.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlistview.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlistwidget.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmainwindow.h \
