@@ -1,27 +1,38 @@
 #include "mainwindow.h"
 #include "eingabe.h"
+#include "person.h"
+#include "ausgabetabelle.h"
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QStackedWidget>
 #include <QVBoxLayout>
 
+#include <vector>
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent), personList(new QListWidget(this)) {
+
+MainWindow::MainWindow(const std::vector<Person>& personen, QWidget *parent)
+    : QMainWindow(parent){
 
     QWidget *centralWidget = new QWidget(this);
     QVBoxLayout *layout = new QVBoxLayout(centralWidget);
 
     auto *stackwidget = new QStackedWidget(this);
     auto *eingabeWidget = new eingabe();  // Dein benutzerdefiniertes Widget
+    auto *ausgabeWidget = new ausgabetabelle(); // Dein benutzerdefiniertes Widget
+    ausgabeWidget->setPersonen(personen);
 
-    // Ein Platzhalter für "Fenster 0"
-    QWidget *dummy = new QWidget();
-    stackwidget->addWidget(dummy);        // Index 0
+    QWidget *startWidget = new QWidget();
+    QVBoxLayout *startLayout = new QVBoxLayout(startWidget);
+    QLabel *label = new QLabel("Willkommen zur Medienbibliothek!", startWidget);
+    label->setAlignment(Qt::AlignCenter);
+    startLayout->addWidget(label);
+    stackwidget->addWidget(startWidget);
     stackwidget->addWidget(eingabeWidget); // Index 1
+    stackwidget->addWidget(ausgabeWidget); // Index 2
 
     layout->addWidget(stackwidget);
-    layout->addWidget(personList);
+    //layout->addWidget(personList);
+
 
     btn1 = new QPushButton("Fenster 1 öffnen", this);
     btn2 = new QPushButton("Fenster 2 öffnen", this);
@@ -32,10 +43,13 @@ MainWindow::MainWindow(QWidget *parent)
     layout->addWidget(btn3);
 
     connect(btn1, &QPushButton::clicked, this, [stackwidget]() {
-        stackwidget->setCurrentIndex(1);  // Zeige das Eingabe-Widget
+        stackwidget->setCurrentIndex(0);  // Zeige das Eingabe-Widget
     });
     connect(btn2, &QPushButton::clicked, this, [stackwidget]() {
-        stackwidget->setCurrentIndex(0);  // Zeige das Dummy-Widget
+        stackwidget->setCurrentIndex(1);  // Zeige das Dummy-Widget
+    });
+    connect(btn3, &QPushButton::clicked, this, [stackwidget]() {
+        stackwidget->setCurrentIndex(2);  // Zeige das Ausgabe-Widget
     });
 
 

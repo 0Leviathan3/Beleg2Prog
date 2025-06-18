@@ -1,5 +1,6 @@
 // main.cpp
 #include <iostream>
+#include <vector>
 #include "medium.h"
 #include "book.h"
 #include "CD.h"
@@ -25,14 +26,19 @@ int main(int argc, char *argv[]) {
     CD cd2("Michael Jackson", "Thriller", 42, "Thriller");
 
 
-Person p1("John", 30);
+    Person p1("John", 30);
     Person p2("Jane", 25);
+
+    std::vector<Person> personen = {
+        p1,
+        p2
+     };
     BlueRay blueRay1("Inception","Goethe", 148, 12);
     BlueRay blueRay2("The Matrix"," bla", 136, 18);
 
     QApplication app(argc, argv);
 
-    auto *window = new MainWindow();
+    auto *window = new MainWindow(personen);
 
     window->show();
     return app.exec();

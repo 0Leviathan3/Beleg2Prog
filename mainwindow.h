@@ -2,8 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QListWidget>
 #include <QPushButton>
+#include <vector>
 #include "person.h"
 #include "CD.h"
 #include "BlueRay.h"
@@ -13,17 +13,13 @@ class MainWindow : public QMainWindow {
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = nullptr);
+    explicit MainWindow(const std::vector<Person>& personen, QWidget *parent = nullptr);
     ~MainWindow();
 
-    
-
 private:
-    QListWidget *personList;
     QPushButton *btn1;
     QPushButton *btn2;
     QPushButton *btn3;
-    
 };
 
 #endif // MAINWINDOW_H

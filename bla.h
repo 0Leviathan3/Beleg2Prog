@@ -1,0 +1,8 @@
+
+
+
+class bla:public QWidget{
+
+
+
+}

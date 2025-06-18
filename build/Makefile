@@ -203,6 +203,30 @@ CD.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/CD.cpp.s
 .PHONY : CD.cpp.s
 
+ausgabetabelle.o: ausgabetabelle.cpp.o
+.PHONY : ausgabetabelle.o
+
+# target to build an object file
+ausgabetabelle.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/ausgabetabelle.cpp.o
+.PHONY : ausgabetabelle.cpp.o
+
+ausgabetabelle.i: ausgabetabelle.cpp.i
+.PHONY : ausgabetabelle.i
+
+# target to preprocess a source file
+ausgabetabelle.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/ausgabetabelle.cpp.i
+.PHONY : ausgabetabelle.cpp.i
+
+ausgabetabelle.s: ausgabetabelle.cpp.s
+.PHONY : ausgabetabelle.s
+
+# target to generate assembly for a file
+ausgabetabelle.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/ausgabetabelle.cpp.s
+.PHONY : ausgabetabelle.cpp.s
+
 beleg_2_semester_autogen/mocs_compilation.o: beleg_2_semester_autogen/mocs_compilation.cpp.o
 .PHONY : beleg_2_semester_autogen/mocs_compilation.o
 
@@ -388,6 +412,9 @@ help:
 	@echo "... CD.o"
 	@echo "... CD.i"
 	@echo "... CD.s"
+	@echo "... ausgabetabelle.o"
+	@echo "... ausgabetabelle.i"
+	@echo "... ausgabetabelle.s"
 	@echo "... beleg_2_semester_autogen/mocs_compilation.o"
 	@echo "... beleg_2_semester_autogen/mocs_compilation.i"
 	@echo "... beleg_2_semester_autogen/mocs_compilation.s"

@@ -4,6 +4,8 @@ beleg_2_semester_autogen/timestamp: \
 	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/CD.cpp \
 	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/CD.h \
 	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/CMakeLists.txt \
+	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/ausgabetabelle.cpp \
+	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/ausgabetabelle.h \
 	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/book.cpp \
 	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/book.h \
 	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/build/CMakeFiles/3.28.3/CMakeCCompiler.cmake \
@@ -419,9 +421,9 @@ beleg_2_semester_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qvalidator.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qwindowdefs.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLabel \
-	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QListWidget \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMainWindow \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QPushButton \
+	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTableWidget \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QVBoxLayout \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractbutton.h \
@@ -436,8 +438,6 @@ beleg_2_semester_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlabel.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlayout.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlayoutitem.h \
-	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlistview.h \
-	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlistwidget.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmainwindow.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qpushbutton.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qrubberband.h \
@@ -446,6 +446,8 @@ beleg_2_semester_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstyle.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstyleoption.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabbar.h \
+	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtableview.h \
+	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtablewidget.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabwidget.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgets-config.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgetsexports.h \
