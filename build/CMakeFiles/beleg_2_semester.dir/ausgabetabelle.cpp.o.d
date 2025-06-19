@@ -360,6 +360,7 @@ CMakeFiles/beleg_2_semester.dir/ausgabetabelle.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qpushbutton.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractbutton.h \
  /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/person.h \
+ /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/datenbank.h \
  /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/fenster1.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QVBoxLayout \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qboxlayout.h \
@@ -371,4 +372,7 @@ CMakeFiles/beleg_2_semester.dir/ausgabetabelle.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qheaderview.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QCheckBox \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qcheckbox.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QHBoxLayout
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QHBoxLayout \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMessageBox \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmessagebox.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdialog.h

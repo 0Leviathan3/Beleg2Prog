@@ -1,7 +1,3 @@
-Beck
-hat Hollas ausgeliehen
-1
-2
-3
-3
-31
+John,30
+Jane,25
+Levin,21

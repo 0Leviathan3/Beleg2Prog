@@ -275,6 +275,30 @@ book.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/book.cpp.s
 .PHONY : book.cpp.s
 
+datenbank.o: datenbank.cpp.o
+.PHONY : datenbank.o
+
+# target to build an object file
+datenbank.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/datenbank.cpp.o
+.PHONY : datenbank.cpp.o
+
+datenbank.i: datenbank.cpp.i
+.PHONY : datenbank.i
+
+# target to preprocess a source file
+datenbank.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/datenbank.cpp.i
+.PHONY : datenbank.cpp.i
+
+datenbank.s: datenbank.cpp.s
+.PHONY : datenbank.s
+
+# target to generate assembly for a file
+datenbank.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/datenbank.cpp.s
+.PHONY : datenbank.cpp.s
+
 eingabe.o: eingabe.cpp.o
 .PHONY : eingabe.o
 
@@ -445,6 +469,9 @@ help:
 	@echo "... book.o"
 	@echo "... book.i"
 	@echo "... book.s"
+	@echo "... datenbank.o"
+	@echo "... datenbank.i"
+	@echo "... datenbank.s"
 	@echo "... eingabe.o"
 	@echo "... eingabe.i"
 	@echo "... eingabe.s"

@@ -15,18 +15,20 @@ public:
     void setPersonen(const std::vector<Person>& personen);
     ~ausgabetabelle();
 
-    // sind funktionen die auf signale antowrten
 private slots:
-    void loescheAusgewaehlteZeilen();   // Slot für Button „Löschen“
-    void oeffneNeuesFenster();          // Slot für Button „Neues Fenster“
+    void loescheAusgewaehlteZeilen();
+    void oeffneNeuesFenster();
     void fuegePersonHinzu(const QString &name, int alter);
 
-
 private:
+    void aktualisiereTabelle();
+
     QTableWidget *tableWidget;
-    QPushButton *btnNeuesFenster;
+    QPushButton *btnSpeichern;
     QPushButton *btnLoeschen;
     QPushButton *neuhinzufügen;
+
+    std::vector<Person> personen;
 };
 
 #endif // AUSGABETABELLE_H

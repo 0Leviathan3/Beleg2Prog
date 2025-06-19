@@ -12,6 +12,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/beleg_2_semester.dir/beleg_2_semester_autogen/mocs_compilation.cpp.o.d"
   "CMakeFiles/beleg_2_semester.dir/book.cpp.o"
   "CMakeFiles/beleg_2_semester.dir/book.cpp.o.d"
+  "CMakeFiles/beleg_2_semester.dir/datenbank.cpp.o"
+  "CMakeFiles/beleg_2_semester.dir/datenbank.cpp.o.d"
   "CMakeFiles/beleg_2_semester.dir/eingabe.cpp.o"
   "CMakeFiles/beleg_2_semester.dir/eingabe.cpp.o.d"
   "CMakeFiles/beleg_2_semester.dir/fenster1.cpp.o"
