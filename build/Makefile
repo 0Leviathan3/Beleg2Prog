@@ -299,6 +299,30 @@ eingabe.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/eingabe.cpp.s
 .PHONY : eingabe.cpp.s
 
+fenster1.o: fenster1.cpp.o
+.PHONY : fenster1.o
+
+# target to build an object file
+fenster1.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/fenster1.cpp.o
+.PHONY : fenster1.cpp.o
+
+fenster1.i: fenster1.cpp.i
+.PHONY : fenster1.i
+
+# target to preprocess a source file
+fenster1.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/fenster1.cpp.i
+.PHONY : fenster1.cpp.i
+
+fenster1.s: fenster1.cpp.s
+.PHONY : fenster1.s
+
+# target to generate assembly for a file
+fenster1.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/fenster1.cpp.s
+.PHONY : fenster1.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -424,6 +448,9 @@ help:
 	@echo "... eingabe.o"
 	@echo "... eingabe.i"
 	@echo "... eingabe.s"
+	@echo "... fenster1.o"
+	@echo "... fenster1.i"
+	@echo "... fenster1.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

@@ -35,12 +35,14 @@ MainWindow::MainWindow(const std::vector<Person>& personen, QWidget *parent)
 
 
     btn1 = new QPushButton("Fenster 1 öffnen", this);
-    btn2 = new QPushButton("Fenster 2 öffnen", this);
-    btn3 = new QPushButton("Fenster 3 öffnen", this);
+    btn2 = new QPushButton("Medien Anzeige", this);
+    btn3 = new QPushButton("Ausleihen", this);
+    btn4 = new QPushButton("Personen Anzeige", this);
 
     layout->addWidget(btn1);
     layout->addWidget(btn2);
     layout->addWidget(btn3);
+    layout->addWidget(btn4);
 
     connect(btn1, &QPushButton::clicked, this, [stackwidget]() {
         stackwidget->setCurrentIndex(0);  // Zeige das Eingabe-Widget
