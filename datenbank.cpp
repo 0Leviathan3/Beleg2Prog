@@ -1,4 +1,5 @@
 #include "datenbank.h"
+#include "person.h"
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -43,13 +44,13 @@ vector<Person> Datenbank::lesePersonenAusDatei() {
     while (getline(in, line)) {
         istringstream iss(line);
         string name;
-        int alter;
+        string alterAlsString;
 
-        // Trennt die Zeile am Komma in Name und Alter
-        if (getline(iss, name, ',') && (iss >> alter)) {
-            // Fügt die Person zur Liste hinzu
-            personen.emplace_back(name, alter);
-        }
+        if (getline(iss, name, ',') && getline(iss, alterAlsString)) {
+            int alter = std::stoi(alterAlsString);  // String → int
+            Person person(name, alter);
+            personen.push_back(person);
+}
     }
 
     return personen;  // Gibt die gelesene Liste zurück

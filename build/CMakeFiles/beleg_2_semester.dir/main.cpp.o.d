@@ -159,6 +159,7 @@ CMakeFiles/beleg_2_semester.dir/main.cpp.o: \
  /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/CD.h \
  /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/BlueRay.h \
  /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/person.h \
+ /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/datenbank.h \
  /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/mainwindow.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMainWindow \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmainwindow.h \

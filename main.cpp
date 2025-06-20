@@ -6,6 +6,7 @@
 #include "CD.h"
 #include "BlueRay.h"
 #include "person.h"
+#include "datenbank.h"
 
 #include "mainwindow.h"
 #include <QApplication>
@@ -26,13 +27,7 @@ int main(int argc, char *argv[]) {
     CD cd2("Michael Jackson", "Thriller", 42, "Thriller");
 
 
-    Person p1("John", 30);
-    Person p2("Jane", 25);
-
-    std::vector<Person> personen = {
-        p1,
-        p2
-     };
+    std::vector<Person> personen = Datenbank::lesePersonenAusDatei();
     BlueRay blueRay1("Inception","Goethe", 148, 12);
     BlueRay blueRay2("The Matrix"," bla", 136, 18);
 
