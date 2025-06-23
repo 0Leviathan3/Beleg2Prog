@@ -31,7 +31,6 @@ MainWindow::MainWindow(const std::vector<Person>& personen, QWidget *parent)
     stackwidget->addWidget(ausgabeWidget); // Index 2
 
     layout->addWidget(stackwidget);
-    //layout->addWidget(personList);
 
 
     btn1 = new QPushButton("Fenster 1 öffnen", this);

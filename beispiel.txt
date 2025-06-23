@@ -1,5 +1,4 @@
 Ben,30
-Clara,22
 David,28
 Eva,35
 Felix,27
@@ -18,3 +17,4 @@ Rita,19
 Simon,38
 Tina,40
 Anna,20
+Jan,5

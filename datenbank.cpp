@@ -8,9 +8,9 @@
 using namespace std;
 
 // Funktion zum Schreiben einer Liste von Personen in eine Datei
-bool Datenbank::schreibePersonenInDatei(const vector<Person>& personen) {
+bool Datenbank::schreibePersonenInDatei(const vector<Person>& personen, const string& dateiname) {
     // Öffnet die Datei eine Ebene über dem aktuellen Verzeichnis (z. B. außerhalb von /build)
-    ofstream out("../beispiel.txt");
+    ofstream out(dateiname);
     
     // Prüft, ob die Datei erfolgreich geöffnet wurde
     if (!out.is_open()) {
@@ -27,11 +27,11 @@ bool Datenbank::schreibePersonenInDatei(const vector<Person>& personen) {
 }
 
 // Funktion zum Lesen einer Liste von Personen aus der Datei
-vector<Person> Datenbank::lesePersonenAusDatei() {
+vector<Person> Datenbank::lesePersonenAusDatei(const string& dateiname) {
     vector<Person> personen;
 
     // Öffnet die Datei (eine Ebene höher)
-    ifstream in("../beispiel.txt");
+    ifstream in(dateiname);
 
     // Prüft, ob die Datei geöffnet werden konnte
     if (!in.is_open()) {

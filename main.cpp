@@ -19,17 +19,17 @@ int main(int argc, char *argv[]) {
     cout << "Welcome to the Media Library!" << endl;
 
     // Create two objects of class Book
-    book book1("The Hobbit",8765, "J.R.R. Tolkien", 234);
-    book book2("1984",3456, "George Orwell", 400);
+    book book1("The Hobbit", 234, "J.R.R. Tolkien");
+    book book2("1984", 400, "George Orwell");
 
     // Create two objects of class CD
-    CD cd1("The Beatles", "Abbey Road", 47, "Abbey Road");
-    CD cd2("Michael Jackson", "Thriller", 42, "Thriller");
+    //CD cd1("The Beatles", "Abbey Road", "Abbey Road");
+    //CD cd2("Michael Jackson", "Thriller", "Thriller");
 
 
-    std::vector<Person> personen = Datenbank::lesePersonenAusDatei();
-    BlueRay blueRay1("Inception","Goethe", 148, 12);
-    BlueRay blueRay2("The Matrix"," bla", 136, 18);
+    std::vector<Person> personen = Datenbank::lesePersonenAusDatei("../beispiel.txt");
+    BlueRay blueRay1("Inception","Goethe", 12);
+    BlueRay blueRay2("The Matrix"," bla", 18);
 
     QApplication app(argc, argv);
 

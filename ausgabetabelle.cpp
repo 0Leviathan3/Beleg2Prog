@@ -38,11 +38,11 @@ ausgabetabelle::ausgabetabelle(QWidget *parent)
     mainLayout->addWidget(neuhinzufügen);
 
     setLayout(mainLayout);
-    setPersonen(Datenbank::lesePersonenAusDatei());
+    setPersonen(Datenbank::lesePersonenAusDatei("../beispiel.txt")); // Initiale Personen laden
 
     // Speichern-Button: speichert Personen in Datei
     connect(btnSpeichern, &QPushButton::clicked, this, [this]() {
-        if (Datenbank::schreibePersonenInDatei(personen)) {
+        if (Datenbank::schreibePersonenInDatei(personen, "../beispiel.txt")) {
             QMessageBox::information(this, "Erfolg", "Datei gespeichert.");
         } else {
             QMessageBox::warning(this, "Fehler", "Datei konnte nicht gespeichert werden.");
@@ -72,7 +72,7 @@ ausgabetabelle::ausgabetabelle(QWidget *parent)
             tableWidget->removeRow(idx);
 
         // Neue Daten speichern
-        Datenbank::schreibePersonenInDatei(personen);
+        Datenbank::schreibePersonenInDatei(personen, "../beispiel.txt");
     });
 
     // Neuhinzufügen-Button: öffnet Fenster1 zur Eingabe
@@ -150,7 +150,7 @@ void ausgabetabelle::fuegePersonHinzu(const QString &name, int alter) {
     tableWidget->setItem(row, 2, new QTableWidgetItem(QString::number(alter)));
 
     // Datei nach Hinzufügen direkt aktualisieren
-    Datenbank::schreibePersonenInDatei(personen);
+    Datenbank::schreibePersonenInDatei(personen, "../beispiel.txt");
 }
 
 // Einfaches Fenster öffnen (nicht weiter verwendet aktuell)

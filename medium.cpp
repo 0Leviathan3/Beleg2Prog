@@ -5,7 +5,7 @@ using namespace std;
 
 int Medium::nextId = 1; // Static member to keep track of the next ID
 
-Medium::Medium(string titel, string type) 
+Medium::Medium(string type,string titel) 
     : title(titel), id(nextId++), type(type) {
     // Constructor implementation
 }
@@ -35,5 +35,10 @@ void Medium::setId(int newId) {
 void Medium::settype(const string& newtype) {
     type = newtype;
 }
-
+bool Medium::getAusgeliehen() {
+    return ausgehlihen;
+}
+void Medium::setAusgeliehen(bool ausgeliehen) {
+    ausgehlihen = ausgeliehen;
+}
 
