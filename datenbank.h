@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include "person.h"
+#include "medium.h"
 
 class Datenbank {
     
@@ -17,6 +18,8 @@ public:
 // Für Medien
     static bool schreibeMedienInDatei(const std::vector<Medium*>& medien, const std::string& dateiname);
     static std::vector<Medium*> leseMedienAusDatei(const std::string& dateiname);
+    static void loescheMedien(std::vector<Medium*>& medien, const std::vector<int>& zuLoeschendeIndizes);
+
 };
 
 #endif // DATENBANK_H

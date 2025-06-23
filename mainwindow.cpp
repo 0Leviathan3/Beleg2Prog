@@ -6,6 +6,7 @@
 #include <QPushButton>
 #include <QStackedWidget>
 #include <QVBoxLayout>
+#include <QLabel>
 
 #include <vector>
 
@@ -33,10 +34,10 @@ MainWindow::MainWindow(const std::vector<Person>& personen, QWidget *parent)
     layout->addWidget(stackwidget);
 
 
-    btn1 = new QPushButton("Fenster 1 öffnen", this);
+    btn1 = new QPushButton("Hauptmenü", this);
     btn2 = new QPushButton("Medien Anzeige", this);
-    btn3 = new QPushButton("Ausleihen", this);
-    btn4 = new QPushButton("Personen Anzeige", this);
+    btn3 = new QPushButton("Personen", this);
+    btn4 = new QPushButton("bla", this);
 
     layout->addWidget(btn1);
     layout->addWidget(btn2);

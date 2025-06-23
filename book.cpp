@@ -3,7 +3,7 @@
 using namespace std;
 #include "book.h"
 
-book::book(string titel, int ISBN, string author) 
+book::book(string titel, string ISBN, string author) 
     : Medium( "Book",titel), ISBN(ISBN), author(author) {
     // Constructor implementation
 }
@@ -15,18 +15,19 @@ void book::displayInfo() const {
             << ", ID: " << id 
             << ", Type: " << type << endl;
 }
-int book::getISBN() const {
-    return ISBN;
-}
+
 string book::getAuthor() const {
     return author;
 }
 
-void book::setISBN(int newISBN) {
-    ISBN = newISBN;
+string book::getISBN() const {
+    return ISBN;
 }
 void book::setAuthor(const string& newAuthor) {
     author = newAuthor;
+}
+void book::setISBN(const string& newISBN) {
+    ISBN = newISBN;
 }
 
 

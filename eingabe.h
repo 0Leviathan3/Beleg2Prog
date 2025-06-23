@@ -12,20 +12,22 @@ class eingabe : public QWidget {
 
 public:
     explicit eingabe(QWidget *parent = nullptr);
-    void setMedien(const std::vector<Medium*>& medien);
     ~eingabe();
+
+    void setMedien(const std::vector<Medium*>& medien);
 
 private slots:
     void loescheAusgewaehlteZeilen();
-    void fuegeMediumHinzu();
+    void fuegeMediumHinzu(const QString& titel, const QString& typ, const QString& id);
+    void speichereMedien();
 
 private:
     void aktualisiereTabelle();
 
-    QTableWidget *tableWidget;
-    QPushButton *btnSpeichern;
-    QPushButton *btnLoeschen;
-    QPushButton *btnHinzufuegen;
+    QTableWidget* tableWidget;
+    QPushButton* btnSpeichern;
+    QPushButton* btnLoeschen;
+    QPushButton* btnHinzufuegen;
 
     std::vector<Medium*> medien;
 };

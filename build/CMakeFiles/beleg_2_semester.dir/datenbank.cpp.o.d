@@ -120,6 +120,9 @@ CMakeFiles/beleg_2_semester.dir/datenbank.cpp.o: \
  /usr/include/c++/13/bits/charconv.h \
  /usr/include/c++/13/bits/basic_string.tcc \
  /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/person.h \
+ /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/medium.h \
+ /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/book.h \
+ /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/BlueRay.h \
  /usr/include/c++/13/fstream /usr/include/c++/13/istream \
  /usr/include/c++/13/ios /usr/include/c++/13/exception \
  /usr/include/c++/13/bits/exception_ptr.h \

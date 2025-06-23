@@ -7,16 +7,16 @@
 class book : public Medium {
 
 public:
-    book(string titel,int ISBN, string author);
+    book(string titel,string ISBN, string author);
     void displayInfo() const;
-    int getISBN() const;
+    string getISBN() const;
     string getAuthor() const;
-    void setISBN(int newISBN);
+    void setISBN(const string& newISBN);
     void setAuthor(const string& newAuthor);
     
     // Getter and Setter methods for title, artist, and duration
 private:
-    int ISBN;// muss ein string werden da auch null vorne stehen kann 
+    string ISBN;// muss ein string werden da auch null vorne stehen kann 
     string author; // Number of pages in the book
 };
 
