@@ -26,15 +26,16 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
 struct qt_meta_stringdata_eingabe_t {
-    uint offsetsAndSizes[16];
+    uint offsetsAndSizes[18];
     char stringdata0[8];
     char stringdata1[26];
     char stringdata2[1];
     char stringdata3[17];
     char stringdata4[6];
-    char stringdata5[4];
+    char stringdata5[7];
     char stringdata6[3];
-    char stringdata7[16];
+    char stringdata7[4];
+    char stringdata8[16];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_eingabe_t::offsetsAndSizes) + ofs), len 
@@ -45,17 +46,19 @@ Q_CONSTINIT static const qt_meta_stringdata_eingabe_t qt_meta_stringdata_eingabe
         QT_MOC_LITERAL(34, 0),  // ""
         QT_MOC_LITERAL(35, 16),  // "fuegeMediumHinzu"
         QT_MOC_LITERAL(52, 5),  // "titel"
-        QT_MOC_LITERAL(58, 3),  // "typ"
-        QT_MOC_LITERAL(62, 2),  // "id"
-        QT_MOC_LITERAL(65, 15)   // "speichereMedien"
+        QT_MOC_LITERAL(58, 6),  // "person"
+        QT_MOC_LITERAL(65, 2),  // "id"
+        QT_MOC_LITERAL(68, 3),  // "typ"
+        QT_MOC_LITERAL(72, 15)   // "speichereMedien"
     },
     "eingabe",
     "loescheAusgewaehlteZeilen",
     "",
     "fuegeMediumHinzu",
     "titel",
-    "typ",
+    "person",
     "id",
+    "typ",
     "speichereMedien"
 };
 #undef QT_MOC_LITERAL
@@ -76,12 +79,12 @@ Q_CONSTINIT static const uint qt_meta_data_eingabe[] = {
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
        1,    0,   32,    2, 0x08,    1 /* Private */,
-       3,    3,   33,    2, 0x08,    2 /* Private */,
-       7,    0,   40,    2, 0x08,    6 /* Private */,
+       3,    4,   33,    2, 0x08,    2 /* Private */,
+       8,    0,   42,    2, 0x08,    7 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::QString,    4,    5,    6,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString,    4,    5,    6,    7,
     QMetaType::Void,
 
        0        // eod
@@ -103,6 +106,7 @@ Q_CONSTINIT const QMetaObject eingabe::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
         QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
         QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
         // method 'speichereMedien'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
@@ -116,7 +120,7 @@ void eingabe::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         (void)_t;
         switch (_id) {
         case 0: _t->loescheAusgewaehlteZeilen(); break;
-        case 1: _t->fuegeMediumHinzu((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[3]))); break;
+        case 1: _t->fuegeMediumHinzu((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[4]))); break;
         case 2: _t->speichereMedien(); break;
         default: ;
         }

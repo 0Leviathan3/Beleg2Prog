@@ -3,6 +3,7 @@
 #include "book.h"
 #include "BlueRay.h"
 #include "datenbank.h"
+#include "fenster2.h"
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QCheckBox>
@@ -20,8 +21,8 @@ eingabe::eingabe(QWidget *parent)
 
     // Tabelle mit 4 Spalten: Checkbox, Titel, Typ, ID (z.B. ISBN/Fsk)
     tableWidget = new QTableWidget(this);
-    tableWidget->setColumnCount(4);
-    tableWidget->setHorizontalHeaderLabels(QStringList() << "" << "Titel" << "Typ" << "ID");
+    tableWidget->setColumnCount(5);
+    tableWidget->setHorizontalHeaderLabels(QStringList() << "" << "Titel" << "Autor/Regisseur" << "ISBN/FSK" << "Ausgeliehen");
     tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
@@ -47,8 +48,9 @@ eingabe::eingabe(QWidget *parent)
     connect(btnLoeschen, &QPushButton::clicked, this, &eingabe::loescheAusgewaehlteZeilen);
 
     connect(btnHinzufuegen, &QPushButton::clicked, this, [this]() {
-        // Beispiel: Demo-Medium hinzufügen
-        fuegeMediumHinzu("Neues Medium", "Book", "0000");
+        Fenster2 *fenster = new Fenster2(nullptr);
+        connect(fenster, &Fenster2::mediumHinzugefuegt, this, &eingabe::fuegeMediumHinzu);
+        fenster->show();
     });
 }
 
@@ -60,6 +62,8 @@ eingabe::~eingabe() {
 
 void eingabe::aktualisiereTabelle() {
     tableWidget->setRowCount(static_cast<int>(medien.size()));
+    tableWidget->setColumnCount(5);
+    tableWidget->setHorizontalHeaderLabels(QStringList() << "" << "Titel" << "Autor/Regisseur" << "ISBN/FSK" << "Ausgeliehen");
 
     for (int i = 0; i < static_cast<int>(medien.size()); ++i) {
         // Checkbox
@@ -72,25 +76,36 @@ void eingabe::aktualisiereTabelle() {
         checkBoxWidget->setLayout(layoutCheck);
         tableWidget->setCellWidget(i, 0, checkBoxWidget);
 
-        // Titel, Typ, ID
+        // Titel
         tableWidget->setItem(i, 1, new QTableWidgetItem(QString::fromStdString(medien[i]->getTitle())));
-        tableWidget->setItem(i, 2, new QTableWidgetItem(QString::fromStdString(medien[i]->gettype())));
 
-        QString idStr;
+        // Autor/Regisseur, ISBN/FSK, Ausgeliehen
+        QString personStr = "n/a";
+        QString idStr = "n/a";
+        QString ausgeliehenStr = "Nein";
+
         if (medien[i]->gettype() == "Book") {
             auto buch = dynamic_cast<book*>(medien[i]);
-            if (buch)
+            if (buch) {
+                personStr = QString::fromStdString(buch->getAuthor());
                 idStr = QString::fromStdString(buch->getISBN());
+                ausgeliehenStr = buch->getAusgeliehen() ? "Ja" : "Nein";
+            }
         } else if (medien[i]->gettype() == "BlueRay") {
             auto br = dynamic_cast<BlueRay*>(medien[i]);
-            if (br)
+            if (br) {
+                personStr = QString::fromStdString(br->getDirector());
                 idStr = QString::number(br->getFSK());
-        } else {
-            idStr = "n/a";
+                ausgeliehenStr = br->getAusgeliehen() ? "Ja" : "Nein";
+            }
         }
+
+        tableWidget->setItem(i, 2, new QTableWidgetItem(personStr));
         tableWidget->setItem(i, 3, new QTableWidgetItem(idStr));
+        tableWidget->setItem(i, 4, new QTableWidgetItem(ausgeliehenStr));
     }
 }
+
 
 void eingabe::loescheAusgewaehlteZeilen() {
     std::vector<int> zeilenZuLoeschen;
@@ -113,20 +128,30 @@ void eingabe::loescheAusgewaehlteZeilen() {
     speichereMedien();
 }
 
-void eingabe::fuegeMediumHinzu(const QString& titel, const QString& typ, const QString& id) {
+void eingabe::fuegeMediumHinzu(const QString &titel, const QString &person, const QString &id, const QString &typ)
+{
     Medium* neu = nullptr;
 
     if (typ == "Book") {
-        neu = new book(titel.toStdString(), id.toStdString(), "Unbekannt");
+        neu = new book(titel.toStdString(), person.toStdString(), id.toStdString());
     } else if (typ == "BlueRay") {
-        neu = new BlueRay(titel.toStdString(), "Unbekannt", id.toInt());
+        bool ok;
+        int fsk = id.toInt(&ok);
+        if (!ok) {
+            QMessageBox::warning(this, "Fehler", "FSK muss eine Zahl sein!");
+            return;
+        }
+        neu = new BlueRay(titel.toStdString(), person.toStdString(), fsk);
     } else {
         QMessageBox::warning(this, "Fehler", "Unbekannter Medientyp!");
         return;
     }
 
+    neu->setAusgeliehen(false);  // Neu hinzugefügte Medien sind nicht ausgeliehen
+
     medien.push_back(neu);
 
+    // Neue Zeile in Tabelle hinzufügen
     int row = tableWidget->rowCount();
     tableWidget->insertRow(row);
 
@@ -140,11 +165,14 @@ void eingabe::fuegeMediumHinzu(const QString& titel, const QString& typ, const Q
     tableWidget->setCellWidget(row, 0, checkBoxWidget);
 
     tableWidget->setItem(row, 1, new QTableWidgetItem(titel));
-    tableWidget->setItem(row, 2, new QTableWidgetItem(typ));
+    tableWidget->setItem(row, 2, new QTableWidgetItem(person));
     tableWidget->setItem(row, 3, new QTableWidgetItem(id));
+    tableWidget->setItem(row, 4, new QTableWidgetItem("Nein"));  // Ausgeliehen = Nein
 
-    speichereMedien();
+    speichereMedien();  // Daten in Datei speichern
 }
+
+
 
 void eingabe::speichereMedien() {
     if (Datenbank::schreibeMedienInDatei(medien, "../mediumDb.txt")) {

@@ -1,11 +1,7 @@
-Book;Faust;Johann Wolfgang von Goethe;9783423021015;true
-BlueRay;Interstellar;Christopher Nolan;12;true
-Book;Die Verwandlung;Franz Kafka;9783150000021;false
+Book;Der Herr der Ringe;J.R.R. Tolkien;9780261102385;false
+BlueRay;Interstellar;Christopher Nolan;12;false
 BlueRay;The Matrix;Wachowski Brothers;16;false
-Book;Der Prozess;Franz Kafka;9783150000014;false
-BlueRay;Inception;Christopher Nolan;16;true
-
-Book;Harry Potter;J.K. Rowling;9780747532743;true
+Book;Harry Potter und der Stein der Weisen;J.K. Rowling;9783551551672;false
 BlueRay;Avatar;James Cameron;12;false
-Book;Moby Dick;Herman Melville;9781503280786;false
-BlueRay;The Godfather;Francis Ford Coppola;16;true
+Book;Die Verwandlung;Franz Kafka;9783150000014;false
+BlueRay;The Godfather;Francis Ford Coppola;16;false

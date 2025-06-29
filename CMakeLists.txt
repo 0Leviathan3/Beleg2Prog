@@ -23,7 +23,8 @@ add_executable(beleg_2_semester
             eingabe.cpp
             ausgabetabelle.cpp
             fenster1.cpp
-            datenbank.cpp)
+            datenbank.cpp
+            fenster2.cpp)
 
 find_package(Qt6 REQUIRED COMPONENTS Core Widgets)
 target_link_libraries(beleg_2_semester Qt6::Widgets)

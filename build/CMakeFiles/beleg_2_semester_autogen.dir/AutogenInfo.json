@@ -225,6 +225,12 @@
 			null
 		],
 		[
+			"/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/fenster2.h",
+			"MU",
+			"EWIEGA46WW/moc_fenster2.cpp",
+			null
+		],
+		[
 			"/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
@@ -326,6 +332,11 @@
 		],
 		[
 			"/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/fenster1.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/fenster2.cpp",
 			"MU",
 			null
 		],

@@ -370,6 +370,20 @@ CMakeFiles/beleg_2_semester.dir/beleg_2_semester_autogen/mocs_compilation.cpp.o:
  /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/build/beleg_2_semester_autogen/EWIEGA46WW/../../../medium.h \
  /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/build/beleg_2_semester_autogen/EWIEGA46WW/moc_fenster1.cpp \
  /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/build/beleg_2_semester_autogen/EWIEGA46WW/../../../fenster1.h \
+ /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/build/beleg_2_semester_autogen/EWIEGA46WW/moc_fenster2.cpp \
+ /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/build/beleg_2_semester_autogen/EWIEGA46WW/../../../fenster2.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLineEdit \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlineedit.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextcursor.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextdocument.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qurl.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextformat.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qpen.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextoption.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QComboBox \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qcombobox.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QCheckBox \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qcheckbox.h \
  /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/build/beleg_2_semester_autogen/EWIEGA46WW/moc_mainwindow.cpp \
  /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/build/beleg_2_semester_autogen/EWIEGA46WW/../../../mainwindow.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMainWindow \

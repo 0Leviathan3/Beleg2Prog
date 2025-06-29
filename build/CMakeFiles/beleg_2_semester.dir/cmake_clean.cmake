@@ -18,6 +18,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/beleg_2_semester.dir/eingabe.cpp.o.d"
   "CMakeFiles/beleg_2_semester.dir/fenster1.cpp.o"
   "CMakeFiles/beleg_2_semester.dir/fenster1.cpp.o.d"
+  "CMakeFiles/beleg_2_semester.dir/fenster2.cpp.o"
+  "CMakeFiles/beleg_2_semester.dir/fenster2.cpp.o.d"
   "CMakeFiles/beleg_2_semester.dir/main.cpp.o"
   "CMakeFiles/beleg_2_semester.dir/main.cpp.o.d"
   "CMakeFiles/beleg_2_semester.dir/mainwindow.cpp.o"

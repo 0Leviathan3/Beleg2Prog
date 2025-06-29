@@ -2,4 +2,5 @@
 #include "EWIEGA46WW/moc_ausgabetabelle.cpp"
 #include "EWIEGA46WW/moc_eingabe.cpp"
 #include "EWIEGA46WW/moc_fenster1.cpp"
+#include "EWIEGA46WW/moc_fenster2.cpp"
 #include "EWIEGA46WW/moc_mainwindow.cpp"

@@ -18,7 +18,7 @@ public:
 
 private slots:
     void loescheAusgewaehlteZeilen();
-    void fuegeMediumHinzu(const QString& titel, const QString& typ, const QString& id);
+    void fuegeMediumHinzu(const QString &titel, const QString &person, const QString &id, const QString &typ);
     void speichereMedien();
 
 private:
