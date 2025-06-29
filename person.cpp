@@ -3,13 +3,20 @@
 using namespace std;
 #include "person.h"
 
-Person::Person(string name, int age){
+
+Person::Person(string name, int age, int id) {
     this->name = name;
     this->age = age;
+    this->id = id;
+
+    if (id >= nextId) {
+        nextId = id + 1;
+    }
 }
 Person::Person(const Person& other){
     this->name = other.name;
     this->age = other.age;
+    this->id = nextId++;
 }
 
 // Ein Setter für den Namen, so fein,
@@ -36,5 +43,5 @@ int Person::getAge() const{
     return age;
 }
 void Person::displayInfo() const{
-    cout << "Name: " << name << ", Age: " << age << endl;
+    cout <<"ID:" << id<< "Name: " << name << ", Age: " << age << endl;
 }

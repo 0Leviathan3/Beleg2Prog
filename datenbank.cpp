@@ -19,7 +19,7 @@ bool Datenbank::schreibePersonenInDatei(const vector<Person>& personen, const st
         return false;
     }
     for (const auto& p : personen) {
-        out << p.getName() << "," << p.getAge() << "\n";
+        out << p.getName() << "," << p.getAge() << "," << p.getId() << "\n";
     }
     return true;
 }
@@ -34,11 +34,11 @@ vector<Person> Datenbank::lesePersonenAusDatei(const string& dateiname) {
     string line;
     while (getline(in, line)) {
         istringstream iss(line);
-        string name;
-        string alterAlsString;
-        if (getline(iss, name, ',') && getline(iss, alterAlsString)) {
+        string name, alterAlsString, idStr;
+        if (getline(iss, name, ',') && getline(iss, alterAlsString, ',') && getline(iss, idStr)) {
             int alter = stoi(alterAlsString);
-            Person person(name, alter);
+            int id = stoi(idStr);
+            Person person(name, alter, id); // <- Konstruktor mit ID
             personen.push_back(person);
         }
     }
@@ -69,10 +69,11 @@ bool Datenbank::schreibeMedienInDatei(const vector<Medium*>& medien, const strin
             book* buch = dynamic_cast<book*>(medium);
             if (buch) {
                 out << "Book;"
-                    << buch->getTitle() << ";"
-                    << buch->getAuthor() << ";"
-                    << buch->getISBN() << ";"
-                    << (buch->getAusgeliehen() ? "true" : "false") << "\n";
+                 << buch->getTitle() << ";"
+                 << buch->getAuthor() << ";"
+                 << buch->getISBN() << ";"
+                 << (buch->getAusgeliehen() ? "true" : "false") << ";"
+                 << buch->getId() << "\n";
             }
         } else if (typ == "BlueRay") {
             BlueRay* br = dynamic_cast<BlueRay*>(medium);
@@ -81,8 +82,9 @@ bool Datenbank::schreibeMedienInDatei(const vector<Medium*>& medien, const strin
                     << br->getTitle() << ";"
                     << br->getDirector() << ";"
                     << br->getFSK() << ";"
-                    << (br->getAusgeliehen() ? "true" : "false") << "\n";
-            }
+                    << (br->getAusgeliehen() ? "true" : "false") << ";"
+                    << br->getId() << "\n";
+                }
         } else {
             cerr << "Unbekannter Medientyp beim Schreiben: " << typ << endl;
         }
@@ -108,23 +110,27 @@ vector<Medium*> Datenbank::leseMedienAusDatei(const string& dateiname) {
             }), typ.end());
 
             if (typ == "Book") {
-                string titel, autor, isbn, ausgeliehenStr;
+                string titel, autor, isbn, ausgeliehenStr, idStr;
                 if (getline(iss, titel, ';') && getline(iss, autor, ';') &&
-                    getline(iss, isbn, ';') && getline(iss, ausgeliehenStr)) {
+                    getline(iss, isbn, ';') && getline(iss, ausgeliehenStr, ';') &&
+                    getline(iss, idStr)) {
 
-                    book* buch = new book(titel,isbn, autor);
+                    int id = stoi(idStr);
+                    book* buch = new book(titel, isbn, autor, id);  // Konstruktor mit ID
                     buch->setAusgeliehen(ausgeliehenStr == "true");
                     medien.push_back(buch);
                 } else {
                     cerr << "Fehler beim Lesen der Book-Daten." << endl;
                 }
             } else if (typ == "BlueRay") {
-                string titel, director, fskStr, ausgeliehenStr;
+                string titel, director, fskStr, ausgeliehenStr, idStr;
                 if (getline(iss, titel, ';') && getline(iss, director, ';') &&
-                    getline(iss, fskStr, ';') && getline(iss, ausgeliehenStr)) {
+                    getline(iss, fskStr, ';') && getline(iss, ausgeliehenStr, ';') &&
+                    getline(iss, idStr)) {
 
                     int fsk = stoi(fskStr);
-                    BlueRay* br = new BlueRay(titel, director, fsk);
+                    int id = stoi(idStr);
+                    BlueRay* br = new BlueRay(titel, director, fsk, id);  // Konstruktor mit ID
                     br->setAusgeliehen(ausgeliehenStr == "true");
                     medien.push_back(br);
                 } else {
@@ -137,6 +143,7 @@ vector<Medium*> Datenbank::leseMedienAusDatei(const string& dateiname) {
     }
     return medien;
 }
+
 
 void Datenbank::loescheMedien(vector<Medium*>& medien, const vector<int>& zuLoeschendeIndizes) {
     vector<int> sortedIndices = zuLoeschendeIndizes;

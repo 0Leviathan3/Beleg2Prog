@@ -1,7 +1,7 @@
-Book;Der Herr der Ringe;J.R.R. Tolkien;9780261102385;false
-BlueRay;Interstellar;Christopher Nolan;12;false
-BlueRay;The Matrix;Wachowski Brothers;16;false
-Book;Harry Potter und der Stein der Weisen;J.K. Rowling;9783551551672;false
-BlueRay;Avatar;James Cameron;12;false
-Book;Die Verwandlung;Franz Kafka;9783150000014;false
-BlueRay;The Godfather;Francis Ford Coppola;16;false
+Book;Der Herr der Ringe;J.R.R. Tolkien;9780261102385;false;1
+BlueRay;Interstellar;Christopher Nolan;12;false;2
+BlueRay;The Matrix;Wachowski Brothers;16;false;3
+Book;Harry Potter und der Stein der Weisen;J.K. Rowling;9783551551672;false;4
+BlueRay;Avatar;James Cameron;12;false;5
+Book;Die Verwandlung;Franz Kafka;9783150000014;false;6
+BlueRay;The Godfather;Francis Ford Coppola;16;false;7

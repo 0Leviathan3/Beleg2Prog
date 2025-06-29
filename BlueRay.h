@@ -1,4 +1,3 @@
-
 #ifndef BLUERAY_H
 #define BLUERAY_H
 
@@ -6,9 +5,10 @@
 #include <string>
 
 class BlueRay : public Medium {
-
 public:
-   BlueRay(string titel,string director, int FSK);
+    BlueRay(string titel, string director, int FSK);
+    BlueRay(string titel, string director, int FSK, int id); // neu
+
     void displayInfo() const;
     string getDirector() const;
     int getFSK() const;
@@ -18,7 +18,6 @@ public:
 private:
     string director;
     int FSK;
-
 };
 
 #endif // BLUERAY_H

@@ -1,19 +1,19 @@
-#include "medium.h"
+#include "book.h"
 #include <iostream>
 using namespace std;
-#include "book.h"
 
-book::book(string titel, string ISBN, string author) 
-    : Medium( "Book",titel), ISBN(ISBN), author(author) {
-    // Constructor implementation
-}
+book::book(string titel, string ISBN, string author)
+    : Medium("Book", titel), ISBN(ISBN), author(author) {}
+
+book::book(string titel, string ISBN, string author, int id)
+    : Medium("Book", titel, id), ISBN(ISBN), author(author) {}
 
 void book::displayInfo() const {
-    cout << "Author: " << author 
-         << ", Title: " << title 
-        << ", ISBN: " << ISBN
-            << ", ID: " << id 
-            << ", Type: " << type << endl;
+    cout << "Author: " << author
+         << ", Title: " << title
+         << ", ISBN: " << ISBN
+         << ", ID: " << id
+         << ", Type: " << type << endl;
 }
 
 string book::getAuthor() const {
@@ -23,12 +23,11 @@ string book::getAuthor() const {
 string book::getISBN() const {
     return ISBN;
 }
+
 void book::setAuthor(const string& newAuthor) {
     author = newAuthor;
 }
+
 void book::setISBN(const string& newISBN) {
     ISBN = newISBN;
 }
-
-
-    
