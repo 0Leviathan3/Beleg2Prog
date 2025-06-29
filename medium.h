@@ -1,29 +1,33 @@
 #ifndef MEDIUM_H
 #define MEDIUM_H
+
 #include <string>
-using namespace std; // warum auch immer aber muss dort stehen 
+using namespace std;
 
 class Medium {
 public:
-    Medium(string type, string title, int id);// Constructor with title and type
+    Medium(string type, string titel);                  
+    Medium(string type, string titel, int id);          
+
     virtual void displayDetails();
     string getTitle() const;
-    string getAutor() const;
-    int getId() const;
     string gettype() const;
-    void setTitle(const string& newTitle);
-    void setAutor(const string& newAutor);
-    void setId(int newId);
-    void settype(const string& newtype);
+    int getId() const;
     bool getAusgeliehen();
+
+    void setTitle(const string& newTitle);
+    void settype(const string& newtype);
+    void setId(int newId);
     void setAusgeliehen(bool ausgeliehen);
+
+    static void setNextId(int id); 
 
 protected:
     string title;
-    int id; // Unique identifier for each medium
-    static int nextId; 
+    int id;
     string type;
-    bool ausgehlihen; // Indicates if the medium is currently borrowed
+    bool ausgehlihen = false;
+    static int nextId;
 };
 
 #endif // MEDIUM_H

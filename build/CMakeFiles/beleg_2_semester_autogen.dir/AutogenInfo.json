@@ -201,6 +201,18 @@
 			null
 		],
 		[
+			"/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/ausleihanzeige.h",
+			"MU",
+			"EWIEGA46WW/moc_ausleihanzeige.cpp",
+			null
+		],
+		[
+			"/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/ausleihmanager.h",
+			"MU",
+			"EWIEGA46WW/moc_ausleihmanager.cpp",
+			null
+		],
+		[
 			"/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/book.h",
 			"MU",
 			"EWIEGA46WW/moc_book.cpp",
@@ -312,6 +324,16 @@
 		],
 		[
 			"/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/ausgabetabelle.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/ausleihanzeige.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/ausleihmanager.cpp",
 			"MU",
 			null
 		],

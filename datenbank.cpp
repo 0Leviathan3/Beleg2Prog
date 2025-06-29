@@ -116,7 +116,7 @@ vector<Medium*> Datenbank::leseMedienAusDatei(const string& dateiname) {
                     getline(iss, idStr)) {
 
                     int id = stoi(idStr);
-                    book* buch = new book(titel, isbn, autor, id);  // Konstruktor mit ID
+                    book* buch = new book(titel, autor, isbn, id);  
                     buch->setAusgeliehen(ausgeliehenStr == "true");
                     medien.push_back(buch);
                 } else {
@@ -130,7 +130,7 @@ vector<Medium*> Datenbank::leseMedienAusDatei(const string& dateiname) {
 
                     int fsk = stoi(fskStr);
                     int id = stoi(idStr);
-                    BlueRay* br = new BlueRay(titel, director, fsk, id);  // Konstruktor mit ID
+                    BlueRay* br = new BlueRay(titel, director, fsk, id);  
                     br->setAusgeliehen(ausgeliehenStr == "true");
                     medien.push_back(br);
                 } else {

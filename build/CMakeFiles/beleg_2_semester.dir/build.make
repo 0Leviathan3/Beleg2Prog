@@ -258,6 +258,34 @@ CMakeFiles/beleg_2_semester.dir/fenster2.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/beleg_2_semester.dir/fenster2.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/fenster2.cpp -o CMakeFiles/beleg_2_semester.dir/fenster2.cpp.s
 
+CMakeFiles/beleg_2_semester.dir/ausleihmanager.cpp.o: CMakeFiles/beleg_2_semester.dir/flags.make
+CMakeFiles/beleg_2_semester.dir/ausleihmanager.cpp.o: /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/ausleihmanager.cpp
+CMakeFiles/beleg_2_semester.dir/ausleihmanager.cpp.o: CMakeFiles/beleg_2_semester.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/beleg_2_semester.dir/ausleihmanager.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/beleg_2_semester.dir/ausleihmanager.cpp.o -MF CMakeFiles/beleg_2_semester.dir/ausleihmanager.cpp.o.d -o CMakeFiles/beleg_2_semester.dir/ausleihmanager.cpp.o -c /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/ausleihmanager.cpp
+
+CMakeFiles/beleg_2_semester.dir/ausleihmanager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/beleg_2_semester.dir/ausleihmanager.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/ausleihmanager.cpp > CMakeFiles/beleg_2_semester.dir/ausleihmanager.cpp.i
+
+CMakeFiles/beleg_2_semester.dir/ausleihmanager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/beleg_2_semester.dir/ausleihmanager.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/ausleihmanager.cpp -o CMakeFiles/beleg_2_semester.dir/ausleihmanager.cpp.s
+
+CMakeFiles/beleg_2_semester.dir/ausleihanzeige.cpp.o: CMakeFiles/beleg_2_semester.dir/flags.make
+CMakeFiles/beleg_2_semester.dir/ausleihanzeige.cpp.o: /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/ausleihanzeige.cpp
+CMakeFiles/beleg_2_semester.dir/ausleihanzeige.cpp.o: CMakeFiles/beleg_2_semester.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/beleg_2_semester.dir/ausleihanzeige.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/beleg_2_semester.dir/ausleihanzeige.cpp.o -MF CMakeFiles/beleg_2_semester.dir/ausleihanzeige.cpp.o.d -o CMakeFiles/beleg_2_semester.dir/ausleihanzeige.cpp.o -c /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/ausleihanzeige.cpp
+
+CMakeFiles/beleg_2_semester.dir/ausleihanzeige.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/beleg_2_semester.dir/ausleihanzeige.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/ausleihanzeige.cpp > CMakeFiles/beleg_2_semester.dir/ausleihanzeige.cpp.i
+
+CMakeFiles/beleg_2_semester.dir/ausleihanzeige.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/beleg_2_semester.dir/ausleihanzeige.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/ausleihanzeige.cpp -o CMakeFiles/beleg_2_semester.dir/ausleihanzeige.cpp.s
+
 # Object files for target beleg_2_semester
 beleg_2_semester_OBJECTS = \
 "CMakeFiles/beleg_2_semester.dir/beleg_2_semester_autogen/mocs_compilation.cpp.o" \
@@ -272,7 +300,9 @@ beleg_2_semester_OBJECTS = \
 "CMakeFiles/beleg_2_semester.dir/ausgabetabelle.cpp.o" \
 "CMakeFiles/beleg_2_semester.dir/fenster1.cpp.o" \
 "CMakeFiles/beleg_2_semester.dir/datenbank.cpp.o" \
-"CMakeFiles/beleg_2_semester.dir/fenster2.cpp.o"
+"CMakeFiles/beleg_2_semester.dir/fenster2.cpp.o" \
+"CMakeFiles/beleg_2_semester.dir/ausleihmanager.cpp.o" \
+"CMakeFiles/beleg_2_semester.dir/ausleihanzeige.cpp.o"
 
 # External object files for target beleg_2_semester
 beleg_2_semester_EXTERNAL_OBJECTS =
@@ -290,6 +320,8 @@ beleg_2_semester: CMakeFiles/beleg_2_semester.dir/ausgabetabelle.cpp.o
 beleg_2_semester: CMakeFiles/beleg_2_semester.dir/fenster1.cpp.o
 beleg_2_semester: CMakeFiles/beleg_2_semester.dir/datenbank.cpp.o
 beleg_2_semester: CMakeFiles/beleg_2_semester.dir/fenster2.cpp.o
+beleg_2_semester: CMakeFiles/beleg_2_semester.dir/ausleihmanager.cpp.o
+beleg_2_semester: CMakeFiles/beleg_2_semester.dir/ausleihanzeige.cpp.o
 beleg_2_semester: CMakeFiles/beleg_2_semester.dir/build.make
 beleg_2_semester: /usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.4.2
 beleg_2_semester: /usr/lib/x86_64-linux-gnu/libQt6Gui.so.6.4.2
@@ -297,7 +329,7 @@ beleg_2_semester: /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.4.2
 beleg_2_semester: /usr/lib/x86_64-linux-gnu/libGLX.so
 beleg_2_semester: /usr/lib/x86_64-linux-gnu/libOpenGL.so
 beleg_2_semester: CMakeFiles/beleg_2_semester.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable beleg_2_semester"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX executable beleg_2_semester"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/beleg_2_semester.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

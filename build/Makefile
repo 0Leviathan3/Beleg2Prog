@@ -227,6 +227,54 @@ ausgabetabelle.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/ausgabetabelle.cpp.s
 .PHONY : ausgabetabelle.cpp.s
 
+ausleihanzeige.o: ausleihanzeige.cpp.o
+.PHONY : ausleihanzeige.o
+
+# target to build an object file
+ausleihanzeige.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/ausleihanzeige.cpp.o
+.PHONY : ausleihanzeige.cpp.o
+
+ausleihanzeige.i: ausleihanzeige.cpp.i
+.PHONY : ausleihanzeige.i
+
+# target to preprocess a source file
+ausleihanzeige.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/ausleihanzeige.cpp.i
+.PHONY : ausleihanzeige.cpp.i
+
+ausleihanzeige.s: ausleihanzeige.cpp.s
+.PHONY : ausleihanzeige.s
+
+# target to generate assembly for a file
+ausleihanzeige.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/ausleihanzeige.cpp.s
+.PHONY : ausleihanzeige.cpp.s
+
+ausleihmanager.o: ausleihmanager.cpp.o
+.PHONY : ausleihmanager.o
+
+# target to build an object file
+ausleihmanager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/ausleihmanager.cpp.o
+.PHONY : ausleihmanager.cpp.o
+
+ausleihmanager.i: ausleihmanager.cpp.i
+.PHONY : ausleihmanager.i
+
+# target to preprocess a source file
+ausleihmanager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/ausleihmanager.cpp.i
+.PHONY : ausleihmanager.cpp.i
+
+ausleihmanager.s: ausleihmanager.cpp.s
+.PHONY : ausleihmanager.s
+
+# target to generate assembly for a file
+ausleihmanager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/ausleihmanager.cpp.s
+.PHONY : ausleihmanager.cpp.s
+
 beleg_2_semester_autogen/mocs_compilation.o: beleg_2_semester_autogen/mocs_compilation.cpp.o
 .PHONY : beleg_2_semester_autogen/mocs_compilation.o
 
@@ -487,6 +535,12 @@ help:
 	@echo "... ausgabetabelle.o"
 	@echo "... ausgabetabelle.i"
 	@echo "... ausgabetabelle.s"
+	@echo "... ausleihanzeige.o"
+	@echo "... ausleihanzeige.i"
+	@echo "... ausleihanzeige.s"
+	@echo "... ausleihmanager.o"
+	@echo "... ausleihmanager.i"
+	@echo "... ausleihmanager.s"
 	@echo "... beleg_2_semester_autogen/mocs_compilation.o"
 	@echo "... beleg_2_semester_autogen/mocs_compilation.i"
 	@echo "... beleg_2_semester_autogen/mocs_compilation.s"

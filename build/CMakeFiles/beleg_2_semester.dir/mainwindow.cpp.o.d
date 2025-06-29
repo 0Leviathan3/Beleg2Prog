@@ -340,11 +340,6 @@ CMakeFiles/beleg_2_semester.dir/mainwindow.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QPushButton \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qpushbutton.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractbutton.h \
- /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/person.h \
- /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/CD.h \
- /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/medium.h \
- /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/BlueRay.h \
- /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/book.h \
  /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/eingabe.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qwidget.h \
@@ -367,7 +362,12 @@ CMakeFiles/beleg_2_semester.dir/mainwindow.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstyle.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabbar.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qrubberband.h \
+ /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/medium.h \
+ /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/person.h \
  /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/ausgabetabelle.h \
+ /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/ausleihanzeige.h \
+ /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/ausleihmanager.h \
+ /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/datenbank.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QVBoxLayout \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qboxlayout.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlayout.h \

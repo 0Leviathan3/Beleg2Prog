@@ -4,16 +4,22 @@ using namespace std;
 #include "person.h"
 
 
-Person::Person(string name, int age, int id) {
-    this->name = name;
-    this->age = age;
-    this->id = id;
+int Person::nextId = 1;
 
-    if (id >= nextId) {
-        nextId = id + 1;
+Person::Person(std::string name, int age, int id) 
+    : name(std::move(name)), age(age) 
+{
+    if (id == -1) {
+        this->id = nextId++;
+    } else {
+        this->id = id;
+        if (id >= nextId) {
+            nextId = id + 1;
+        }
     }
 }
-Person::Person(const Person& other){
+
+Person::Person(const Person& other) {
     this->name = other.name;
     this->age = other.age;
     this->id = nextId++;
@@ -44,4 +50,7 @@ int Person::getAge() const{
 }
 void Person::displayInfo() const{
     cout <<"ID:" << id<< "Name: " << name << ", Age: " << age << endl;
+}
+int Person::getId() const {
+    return id;
 }

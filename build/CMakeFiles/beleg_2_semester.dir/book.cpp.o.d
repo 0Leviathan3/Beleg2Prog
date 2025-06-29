@@ -1,6 +1,7 @@
 CMakeFiles/beleg_2_semester.dir/book.cpp.o: \
  /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/book.cpp \
  /usr/include/stdc-predef.h \
+ /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/book.h \
  /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/medium.h \
  /usr/include/c++/13/string /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
@@ -152,5 +153,4 @@ CMakeFiles/beleg_2_semester.dir/book.cpp.o: \
  /usr/include/c++/13/bits/locale_facets.tcc \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
- /usr/include/c++/13/bits/istream.tcc \
- /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/book.h
+ /usr/include/c++/13/bits/istream.tcc

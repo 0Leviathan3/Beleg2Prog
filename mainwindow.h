@@ -4,16 +4,18 @@
 #include <QMainWindow>
 #include <QPushButton>
 #include <vector>
-#include "person.h"
-#include "CD.h"
-#include "BlueRay.h"
-#include "book.h"
 
-class MainWindow : public QMainWindow {
+class eingabe;
+class ausgabetabelle;
+class AusleihAnzeige;
+class Person;
+
+class MainWindow : public QMainWindow
+{
     Q_OBJECT
 
 public:
-    explicit MainWindow(const std::vector<Person>& personen, QWidget *parent = nullptr);
+    MainWindow(const std::vector<Person>& personen, QWidget *parent = nullptr);
     ~MainWindow();
 
 private:

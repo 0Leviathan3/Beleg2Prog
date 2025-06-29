@@ -6,6 +6,10 @@ beleg_2_semester_autogen/timestamp: \
 	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/CMakeLists.txt \
 	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/ausgabetabelle.cpp \
 	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/ausgabetabelle.h \
+	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/ausleihanzeige.cpp \
+	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/ausleihanzeige.h \
+	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/ausleihmanager.cpp \
+	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/ausleihmanager.h \
 	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/book.cpp \
 	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/book.h \
 	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/build/CMakeFiles/3.28.3/CMakeCCompiler.cmake \
