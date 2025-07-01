@@ -17,18 +17,21 @@ public:
 
     void setAusleihen(const std::vector<Ausleihe> &ausleihen,
                       const std::vector<Person> &personen,
-                      const std::vector<Medium> &medien);
+                      const std::vector<Medium*> &medien);  // geändert auf Medium*
 
     std::vector<int> getAusgewaehlteZeilen() const;
 
 signals:
     void hinzufuegenClicked();
-    void loeschenClicked();
 
 private:
     QTableWidget *tableWidget;
     QPushButton *addButton;
     QPushButton *deleteButton;
+    std::vector<Person> personen;
+    std::vector<Medium*> medien;  // geändert auf Medium*
+    std::vector<Ausleihe> aktuelleAusleihen;
+    
 };
 
 #endif // AUSLEIHANZEIGE_H

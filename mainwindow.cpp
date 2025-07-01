@@ -11,6 +11,7 @@
 #include <QPushButton>
 #include <QStackedWidget>
 #include <QLabel>
+#include <QDialogButtonBox>
 
 MainWindow::MainWindow(const std::vector<Person>& personen, QWidget *parent)
     : QMainWindow(parent)
@@ -29,15 +30,11 @@ MainWindow::MainWindow(const std::vector<Person>& personen, QWidget *parent)
     auto *ausleihAnzeigeWidget = new AusleihAnzeige();
 
     std::vector<Ausleihe> ausleihen = AusleihManager::ladeAusleihenAusDatei();
-    std::vector<Person> personenListe = Datenbank::lesePersonenAusDatei("beispiel");
-    std::vector<Medium*> medienPtr = Datenbank::leseMedienAusDatei("mediumDb.txt");
+    std::vector<Person> personenListe = Datenbank::lesePersonenAusDatei("../beispiel.txt");
+    std::vector<Medium*> medienPtr = Datenbank::leseMedienAusDatei("../mediumDb.txt");
 
-    std::vector<Medium> medien;
-    for (auto* m : medienPtr) {
-        if (m) medien.push_back(*m);
-    }
-
-    ausleihAnzeigeWidget->setAusleihen(ausleihen, personenListe, medien);
+    // Übergabe der Zeiger, wie von setAusleihen erwartet
+    ausleihAnzeigeWidget->setAusleihen(ausleihen, personenListe, medienPtr);
 
     // Speicher freigeben
     for (auto* m : medienPtr) {

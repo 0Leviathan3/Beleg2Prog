@@ -251,6 +251,30 @@ ausleihanzeige.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/ausleihanzeige.cpp.s
 .PHONY : ausleihanzeige.cpp.s
 
+ausleihdialog.o: ausleihdialog.cpp.o
+.PHONY : ausleihdialog.o
+
+# target to build an object file
+ausleihdialog.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/ausleihdialog.cpp.o
+.PHONY : ausleihdialog.cpp.o
+
+ausleihdialog.i: ausleihdialog.cpp.i
+.PHONY : ausleihdialog.i
+
+# target to preprocess a source file
+ausleihdialog.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/ausleihdialog.cpp.i
+.PHONY : ausleihdialog.cpp.i
+
+ausleihdialog.s: ausleihdialog.cpp.s
+.PHONY : ausleihdialog.s
+
+# target to generate assembly for a file
+ausleihdialog.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/ausleihdialog.cpp.s
+.PHONY : ausleihdialog.cpp.s
+
 ausleihmanager.o: ausleihmanager.cpp.o
 .PHONY : ausleihmanager.o
 
@@ -538,6 +562,9 @@ help:
 	@echo "... ausleihanzeige.o"
 	@echo "... ausleihanzeige.i"
 	@echo "... ausleihanzeige.s"
+	@echo "... ausleihdialog.o"
+	@echo "... ausleihdialog.i"
+	@echo "... ausleihdialog.s"
 	@echo "... ausleihmanager.o"
 	@echo "... ausleihmanager.i"
 	@echo "... ausleihmanager.s"

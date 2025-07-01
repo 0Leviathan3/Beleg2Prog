@@ -26,7 +26,8 @@ add_executable(beleg_2_semester
             datenbank.cpp
             fenster2.cpp
             ausleihmanager.cpp
-            ausleihanzeige.cpp)
+            ausleihanzeige.cpp
+            ausleihdialog.cpp)
 
 find_package(Qt6 REQUIRED COMPONENTS Core Widgets)
 target_link_libraries(beleg_2_semester Qt6::Widgets)

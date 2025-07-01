@@ -7,8 +7,8 @@
 class BlueRay : public Medium {
 public:
     BlueRay(string titel, string director, int FSK);
-    BlueRay(string titel, string director, int FSK, int id); // neu
-
+    BlueRay(string titel, string director, int FSK, int id); 
+    
     void displayInfo() const;
     string getDirector() const;
     int getFSK() const;

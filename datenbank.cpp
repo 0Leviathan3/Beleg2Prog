@@ -1,8 +1,6 @@
 #include "datenbank.h"
-#include "medium.h"
 #include "book.h"
 #include "BlueRay.h"
-#include "person.h"
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -38,7 +36,7 @@ vector<Person> Datenbank::lesePersonenAusDatei(const string& dateiname) {
         if (getline(iss, name, ',') && getline(iss, alterAlsString, ',') && getline(iss, idStr)) {
             int alter = stoi(alterAlsString);
             int id = stoi(idStr);
-            Person person(name, alter, id); // <- Konstruktor mit ID
+            Person person(name, alter, id); // Konstruktor mit ID
             personen.push_back(person);
         }
     }
@@ -64,16 +62,16 @@ bool Datenbank::schreibeMedienInDatei(const vector<Medium*>& medien, const strin
         return false;
     }
     for (const auto& medium : medien) {
-        string typ = medium->gettype();  
+        string typ = medium->gettype();
         if (typ == "Book") {
             book* buch = dynamic_cast<book*>(medium);
             if (buch) {
                 out << "Book;"
-                 << buch->getTitle() << ";"
-                 << buch->getAuthor() << ";"
-                 << buch->getISBN() << ";"
-                 << (buch->getAusgeliehen() ? "true" : "false") << ";"
-                 << buch->getId() << "\n";
+                    << buch->getTitle() << ";"
+                    << buch->getAuthor() << ";"
+                    << buch->getISBN() << ";"
+                    << (buch->getAusgeliehen() ? "true" : "false") << ";"
+                    << buch->getId() << "\n";
             }
         } else if (typ == "BlueRay") {
             BlueRay* br = dynamic_cast<BlueRay*>(medium);
@@ -84,7 +82,7 @@ bool Datenbank::schreibeMedienInDatei(const vector<Medium*>& medien, const strin
                     << br->getFSK() << ";"
                     << (br->getAusgeliehen() ? "true" : "false") << ";"
                     << br->getId() << "\n";
-                }
+            }
         } else {
             cerr << "Unbekannter Medientyp beim Schreiben: " << typ << endl;
         }
@@ -104,7 +102,6 @@ vector<Medium*> Datenbank::leseMedienAusDatei(const string& dateiname) {
         istringstream iss(line);
         string typ;
         if (getline(iss, typ, ';')) {
-            // Typ bereinigen: Leerzeichen, \r, \n entfernen
             typ.erase(remove_if(typ.begin(), typ.end(), [](char c) {
                 return c == '\r' || c == '\n' || isspace(c);
             }), typ.end());
@@ -116,7 +113,8 @@ vector<Medium*> Datenbank::leseMedienAusDatei(const string& dateiname) {
                     getline(iss, idStr)) {
 
                     int id = stoi(idStr);
-                    book* buch = new book(titel, autor, isbn, id);  
+                    // Autor und ISBN beim Konstruktor tauschen, weil in Datei: Titel;Autor;ISBN
+                    book* buch = new book(titel, autor, isbn, id);
                     buch->setAusgeliehen(ausgeliehenStr == "true");
                     medien.push_back(buch);
                 } else {
@@ -130,7 +128,7 @@ vector<Medium*> Datenbank::leseMedienAusDatei(const string& dateiname) {
 
                     int fsk = stoi(fskStr);
                     int id = stoi(idStr);
-                    BlueRay* br = new BlueRay(titel, director, fsk, id);  
+                    BlueRay* br = new BlueRay(titel, director, fsk, id);
                     br->setAusgeliehen(ausgeliehenStr == "true");
                     medien.push_back(br);
                 } else {
@@ -141,16 +139,24 @@ vector<Medium*> Datenbank::leseMedienAusDatei(const string& dateiname) {
             }
         }
     }
+
+    // nextId für Medien richtig setzen, um doppelte IDs zu vermeiden
+    int maxId = 0;
+    for (const auto& m : medien) {
+        if (m->getId() > maxId)
+            maxId = m->getId();
+    }
+    Medium::setNextId(maxId + 1);
+
     return medien;
 }
-
 
 void Datenbank::loescheMedien(vector<Medium*>& medien, const vector<int>& zuLoeschendeIndizes) {
     vector<int> sortedIndices = zuLoeschendeIndizes;
     sort(sortedIndices.rbegin(), sortedIndices.rend());
     for (int idx : sortedIndices) {
         if (idx >= 0 && idx < static_cast<int>(medien.size())) {
-            delete medien[idx];  // Speicher freigeben, da new verwendet wurde
+            delete medien[idx];
             medien.erase(medien.begin() + idx);
         }
     }

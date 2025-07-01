@@ -8,6 +8,8 @@ beleg_2_semester_autogen/timestamp: \
 	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/ausgabetabelle.h \
 	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/ausleihanzeige.cpp \
 	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/ausleihanzeige.h \
+	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/ausleihdialog.cpp \
+	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/ausleihdialog.h \
 	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/ausleihmanager.cpp \
 	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/ausleihmanager.h \
 	/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/book.cpp \
@@ -434,6 +436,7 @@ beleg_2_semester_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/qt6/QtGui/qwindowdefs.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QCheckBox \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QComboBox \
+	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QDialog \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLineEdit \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMainWindow \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QPushButton \
@@ -447,6 +450,7 @@ beleg_2_semester_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractspinbox.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qcheckbox.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qcombobox.h \
+	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdialog.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qframe.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlineedit.h \
 	/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmainwindow.h \

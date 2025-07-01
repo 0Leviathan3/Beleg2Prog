@@ -18,8 +18,6 @@ Fenster2::Fenster2(QWidget *parent)
     comboBox->addItem("Book");
     comboBox->addItem("BlueRay");
 
-
-
     neuhinzufuegen = new QPushButton("Hinzufügen", this);
     clearButton = new QPushButton("Leeren", this);
 
@@ -29,7 +27,6 @@ Fenster2::Fenster2(QWidget *parent)
     layout->addWidget(feld1);
     layout->addWidget(feld3);
     layout->addWidget(feld4);
-
 
     auto *buttonLayout = new QHBoxLayout();
     buttonLayout->addWidget(neuhinzufuegen);

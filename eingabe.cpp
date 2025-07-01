@@ -11,7 +11,6 @@
 #include <algorithm>
 #include <QHeaderView>
 
-
 eingabe::eingabe(QWidget *parent)
     : QWidget(parent)
 {
@@ -19,7 +18,7 @@ eingabe::eingabe(QWidget *parent)
 
     auto *mainLayout = new QVBoxLayout(this);
 
-    // Tabelle mit 4 Spalten: Checkbox, Titel, Typ, ID (z.B. ISBN/Fsk)
+    // Tabelle mit 5 Spalten: Checkbox, Titel, Autor/Regisseur, ISBN/FSK, Ausgeliehen
     tableWidget = new QTableWidget(this);
     tableWidget->setColumnCount(5);
     tableWidget->setHorizontalHeaderLabels(QStringList() << "" << "Titel" << "Autor/Regisseur" << "ISBN/FSK" << "Ausgeliehen");
@@ -44,9 +43,7 @@ eingabe::eingabe(QWidget *parent)
     aktualisiereTabelle();
 
     connect(btnSpeichern, &QPushButton::clicked, this, &eingabe::speichereMedien);
-
     connect(btnLoeschen, &QPushButton::clicked, this, &eingabe::loescheAusgewaehlteZeilen);
-
     connect(btnHinzufuegen, &QPushButton::clicked, this, [this]() {
         Fenster2 *fenster = new Fenster2(nullptr);
         connect(fenster, &Fenster2::mediumHinzugefuegt, this, &eingabe::fuegeMediumHinzu);
@@ -106,7 +103,6 @@ void eingabe::aktualisiereTabelle() {
     }
 }
 
-
 void eingabe::loescheAusgewaehlteZeilen() {
     std::vector<int> zeilenZuLoeschen;
     for (int i = 0; i < tableWidget->rowCount(); ++i) {
@@ -133,7 +129,7 @@ void eingabe::fuegeMediumHinzu(const QString &titel, const QString &person, cons
     Medium* neu = nullptr;
 
     if (typ == "Book") {
-        neu = new book(titel.toStdString(), person.toStdString(), id.toStdString());
+        neu = new book(titel.toStdString(), id.toStdString(), person.toStdString());  // ISBN vor Autor
     } else if (typ == "BlueRay") {
         bool ok;
         int fsk = id.toInt(&ok);
@@ -171,8 +167,6 @@ void eingabe::fuegeMediumHinzu(const QString &titel, const QString &person, cons
 
     speichereMedien();  // Daten in Datei speichern
 }
-
-
 
 void eingabe::speichereMedien() {
     if (Datenbank::schreibeMedienInDatei(medien, "../mediumDb.txt")) {
