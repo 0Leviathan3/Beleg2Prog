@@ -120,7 +120,7 @@ vector<Medium*> Datenbank::leseMedienAusDatei(const string& dateiname) {
                     getline(iss, idStr)) {
                     try {
                         int id = stoi(idStr);
-                        book* buch = new book(titel, autor, isbn, id);
+                        book* buch = new book(titel, isbn, autor, id);
                         buch->setAusgeliehen(ausgeliehenStr == "true");
                         medien.push_back(buch);
                     } catch (const exception& e) {
