@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QTableWidget>
 #include <QPushButton>
+#include <vector>
 #include "ausleihmanager.h"
 #include "person.h"
 #include "medium.h"
@@ -17,7 +18,7 @@ public:
 
     void setAusleihen(const std::vector<Ausleihe> &ausleihen,
                       const std::vector<Person> &personen,
-                      const std::vector<Medium*> &medien);  // geändert auf Medium*
+                      const std::vector<Medium*> &medien);
 
     std::vector<int> getAusgewaehlteZeilen() const;
 
@@ -28,10 +29,10 @@ private:
     QTableWidget *tableWidget;
     QPushButton *addButton;
     QPushButton *deleteButton;
+
     std::vector<Person> personen;
-    std::vector<Medium*> medien;  // geändert auf Medium*
+    std::vector<Medium*> medien;
     std::vector<Ausleihe> aktuelleAusleihen;
-    
 };
 
 #endif // AUSLEIHANZEIGE_H

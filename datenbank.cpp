@@ -17,6 +17,7 @@ bool Datenbank::schreibePersonenInDatei(const vector<Person>& personen, const st
         return false;
     }
     for (const auto& p : personen) {
+        // Format: Name,Alter,ID
         out << p.getName() << "," << p.getAge() << "," << p.getId() << "\n";
     }
     return true;
@@ -34,10 +35,15 @@ vector<Person> Datenbank::lesePersonenAusDatei(const string& dateiname) {
         istringstream iss(line);
         string name, alterAlsString, idStr;
         if (getline(iss, name, ',') && getline(iss, alterAlsString, ',') && getline(iss, idStr)) {
-            int alter = stoi(alterAlsString);
-            int id = stoi(idStr);
-            Person person(name, alter, id); // Konstruktor mit ID
-            personen.push_back(person);
+            try {
+                int alter = stoi(alterAlsString);
+                int id = stoi(idStr);
+                Person person(name, alter, id);
+                personen.push_back(person);
+            } catch (const exception& e) {
+                cerr << "Fehler beim Parsen der Person: " << e.what() << " in Zeile: " << line << endl;
+                // Ignoriere fehlerhafte Zeilen, sonst Programmabbruch
+            }
         }
     }
     return personen;
@@ -102,6 +108,7 @@ vector<Medium*> Datenbank::leseMedienAusDatei(const string& dateiname) {
         istringstream iss(line);
         string typ;
         if (getline(iss, typ, ';')) {
+            // Entferne whitespace/CR/LF am Ende von typ
             typ.erase(remove_if(typ.begin(), typ.end(), [](char c) {
                 return c == '\r' || c == '\n' || isspace(c);
             }), typ.end());
@@ -111,12 +118,14 @@ vector<Medium*> Datenbank::leseMedienAusDatei(const string& dateiname) {
                 if (getline(iss, titel, ';') && getline(iss, autor, ';') &&
                     getline(iss, isbn, ';') && getline(iss, ausgeliehenStr, ';') &&
                     getline(iss, idStr)) {
-
-                    int id = stoi(idStr);
-                    // Autor und ISBN beim Konstruktor tauschen, weil in Datei: Titel;Autor;ISBN
-                    book* buch = new book(titel, autor, isbn, id);
-                    buch->setAusgeliehen(ausgeliehenStr == "true");
-                    medien.push_back(buch);
+                    try {
+                        int id = stoi(idStr);
+                        book* buch = new book(titel, autor, isbn, id);
+                        buch->setAusgeliehen(ausgeliehenStr == "true");
+                        medien.push_back(buch);
+                    } catch (const exception& e) {
+                        cerr << "Fehler beim Parsen eines Books: " << e.what() << endl;
+                    }
                 } else {
                     cerr << "Fehler beim Lesen der Book-Daten." << endl;
                 }
@@ -125,12 +134,15 @@ vector<Medium*> Datenbank::leseMedienAusDatei(const string& dateiname) {
                 if (getline(iss, titel, ';') && getline(iss, director, ';') &&
                     getline(iss, fskStr, ';') && getline(iss, ausgeliehenStr, ';') &&
                     getline(iss, idStr)) {
-
-                    int fsk = stoi(fskStr);
-                    int id = stoi(idStr);
-                    BlueRay* br = new BlueRay(titel, director, fsk, id);
-                    br->setAusgeliehen(ausgeliehenStr == "true");
-                    medien.push_back(br);
+                    try {
+                        int fsk = stoi(fskStr);
+                        int id = stoi(idStr);
+                        BlueRay* br = new BlueRay(titel, director, fsk, id);
+                        br->setAusgeliehen(ausgeliehenStr == "true");
+                        medien.push_back(br);
+                    } catch (const exception& e) {
+                        cerr << "Fehler beim Parsen einer BlueRay: " << e.what() << endl;
+                    }
                 } else {
                     cerr << "Fehler beim Lesen der BlueRay-Daten." << endl;
                 }

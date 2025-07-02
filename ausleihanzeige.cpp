@@ -1,12 +1,12 @@
 #include "ausleihanzeige.h"
 #include "ausleihdialog.h"
 #include "datenbank.h"
+#include "ausleihmanager.h"
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QHeaderView>
 #include <QMessageBox>
-#include <QDebug>
 
 AusleihAnzeige::AusleihAnzeige(QWidget *parent)
     : QWidget(parent)
@@ -14,14 +14,12 @@ AusleihAnzeige::AusleihAnzeige(QWidget *parent)
     auto *mainLayout = new QVBoxLayout(this);
     auto *buttonLayout = new QHBoxLayout();
 
-    // Tabelle einrichten
     tableWidget = new QTableWidget(this);
     tableWidget->setColumnCount(3); // Checkbox + Person + Medium
     tableWidget->setHorizontalHeaderLabels(QStringList() << "" << "Person" << "Medium");
     tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
-    // Buttons erstellen
     addButton = new QPushButton("Hinzufügen", this);
     deleteButton = new QPushButton("Löschen", this);
 
@@ -32,94 +30,86 @@ AusleihAnzeige::AusleihAnzeige(QWidget *parent)
     mainLayout->addLayout(buttonLayout);
     mainLayout->addWidget(tableWidget);
 
-    // Signale verbinden
     connect(addButton, &QPushButton::clicked, this, [this]() {
-        if (personen.empty() || medien.empty()) return;
-
-        AusleihDialog dialog(medien, personen, this);
+        AusleihDialog dialog(this);
         if (dialog.exec() == QDialog::Accepted) {
-            int personId = dialog.getSelectedPersonId();
-            int mediumId = dialog.getSelectedMediumId();
+            std::vector<std::string> personNamen = dialog.getSelectedPersonNames();
+            std::string mediumTitel = dialog.getSelectedMediumTitle();
 
-            // IDs prüfen
-            bool validPerson = std::any_of(personen.begin(), personen.end(), [personId](const Person& p){ return p.getId() == personId; });
-            bool validMedium = std::any_of(medien.begin(), medien.end(), [mediumId](const Medium* m){ return m->getId() == mediumId; });
-
-            if (!validPerson || !validMedium) {
-                QMessageBox::warning(this, "Fehler", "Ungültige Person oder Medium ausgewählt!");
-                qDebug() << "Ungültige IDs: personId =" << personId << ", mediumId =" << mediumId;
+            if (personNamen.empty()) {
+                QMessageBox::warning(this, "Ausleihe", "Keine Personen ausgewählt.");
                 return;
             }
 
-            qDebug() << "Hinzufügen: personId =" << personId << ", mediumId =" << mediumId;
+            if (AusleihManager::istMediumAusgeliehen(this->aktuelleAusleihen, mediumTitel)) {
+                QMessageBox::warning(this, "Ausleihe", "Das Medium ist bereits ausgeliehen!");
+                return;
+            }
 
-            // 1. Ausleihe zur Liste hinzufügen
-            AusleihManager::fuegeAusleiheHinzu(aktuelleAusleihen, personId, mediumId);
+            for (const auto& name : personNamen) {
+                AusleihManager::fuegeAusleiheHinzu(this->aktuelleAusleihen, name, mediumTitel);
+            }
 
-            // 2. Medium auf "ausgeliehen = true" setzen
-            for (auto* m : medien) {
-                if (m->getId() == mediumId) {
-                    m->setAusgeliehen(true);
+            for (auto* medium : this->medien) {
+                if (medium->getTitle() == mediumTitel) {
+                    medium->setAusgeliehen(true);
                     break;
                 }
             }
 
-            // 3. Dateien speichern
-            AusleihManager::speichereAusleihenInDatei(aktuelleAusleihen, AusleihManager::DATEIPFAD);
-            Datenbank::schreibeMedienInDatei(medien, "medien.txt");  // Passe den Dateinamen ggf. an
+            AusleihManager::speichereAusleihenInDatei(this->aktuelleAusleihen, "../ausleihen.txt");
+            Datenbank::schreibeMedienInDatei(this->medien, "../medien.txt");
 
-            // 4. Anzeige aktualisieren
-            setAusleihen(aktuelleAusleihen, personen, medien);
+            this->personen = Datenbank::lesePersonenAusDatei("../beispiel.txt");
+
+            this->setAusleihen(this->aktuelleAusleihen, this->personen, this->medien);
         }
     });
 
-    
+    // TODO: deleteButton mit Lösch-Logik verbinden
 }
 
 void AusleihAnzeige::setAusleihen(const std::vector<Ausleihe> &ausleihen,
-    const std::vector<Person> &personen,
-    const std::vector<Medium*> &medien)
+                                  const std::vector<Person> &personen,
+                                  const std::vector<Medium*> &medien)
 {
-this->aktuelleAusleihen = ausleihen;
-this->personen = personen;
-this->medien = medien;
+    this->aktuelleAusleihen = ausleihen;
+    this->personen = personen;
+    this->medien = medien;
 
-tableWidget->clearContents();
-tableWidget->setRowCount(static_cast<int>(ausleihen.size()));
-tableWidget->setColumnCount(3);
-tableWidget->setHorizontalHeaderLabels(QStringList() << "" << "Person" << "Medium");
+    tableWidget->clearContents();
+    tableWidget->setRowCount(static_cast<int>(ausleihen.size()));
+    tableWidget->setColumnCount(3);
+    tableWidget->setHorizontalHeaderLabels(QStringList() << "" << "Person" << "Medium");
 
-for (int i = 0; i < static_cast<int>(ausleihen.size()); ++i) {
-const Ausleihe& ausleihe = ausleihen[i];
+    for (int i = 0; i < static_cast<int>(ausleihen.size()); ++i) {
+        const Ausleihe& ausleihe = ausleihen[i];
 
-QString personName = "Unbekannt";
-QString mediumTitle = "Unbekannt";
+        QString personName = QString::fromStdString(ausleihe.personenName);
+        QString mediumTitle = QString::fromStdString(ausleihe.mediumTitel);
 
-for (const auto& person : personen) {
-if (person.getId() == ausleihe.personenId) {
-personName = QString::fromStdString(person.getName());
-break;
-}
-}
+        auto *checkItem = new QTableWidgetItem();
+        checkItem->setFlags(Qt::ItemIsUserCheckable | Qt::ItemIsEnabled);
+        checkItem->setCheckState(Qt::Unchecked);
+        tableWidget->setItem(i, 0, checkItem);
 
-for (const auto* medium : medien) {
-if (medium->getId() == ausleihe.mediumId) {
-mediumTitle = QString::fromStdString(medium->getTitle());
-break;
-}
+        tableWidget->setItem(i, 1, new QTableWidgetItem(personName));
+        tableWidget->setItem(i, 2, new QTableWidgetItem(mediumTitle));
+    }
+
+    tableWidget->resizeColumnsToContents();
 }
 
-// Checkbox-Spalte
-auto *checkItem = new QTableWidgetItem();
-checkItem->setFlags(Qt::ItemIsUserCheckable | Qt::ItemIsEnabled);
-checkItem->setCheckState(Qt::Unchecked);
-tableWidget->setItem(i, 0, checkItem);
+std::vector<int> AusleihAnzeige::getAusgewaehlteZeilen() const
+{
+    std::vector<int> ausgewaehlteZeilen;
 
-// Person und Medium
-tableWidget->setItem(i, 1, new QTableWidgetItem(personName));
-tableWidget->setItem(i, 2, new QTableWidgetItem(mediumTitle));
+    for (int row = 0; row < tableWidget->rowCount(); ++row) {
+        auto *item = tableWidget->item(row, 0);
+        if (item && item->checkState() == Qt::Checked) {
+            ausgewaehlteZeilen.push_back(row);
+        }
+    }
+
+    return ausgewaehlteZeilen;
 }
-
-tableWidget->resizeColumnsToContents();
-}
-

@@ -3,20 +3,18 @@
 #include <sstream>
 #include <algorithm>
 
-std::vector<Ausleihe> AusleihManager::ladeAusleihenAusDatei() {
+std::vector<Ausleihe> AusleihManager::ladeAusleihenAusDatei(const std::string &pfad) {
     std::vector<Ausleihe> ausleihen;
-    std::ifstream datei(DATEIPFAD);
+    std::ifstream datei(pfad);
     if (!datei.is_open()) return ausleihen;
 
     std::string zeile;
     while (std::getline(datei, zeile)) {
         std::istringstream iss(zeile);
-        std::string personIdStr, mediumIdStr;
+        std::string personenName, mediumTitel;
 
-        if (std::getline(iss, personIdStr, ';') && std::getline(iss, mediumIdStr)) {
-            Ausleihe a;
-            a.personenId = std::stoi(personIdStr);
-            a.mediumId = std::stoi(mediumIdStr);
+        if (std::getline(iss, personenName, ';') && std::getline(iss, mediumTitel)) {
+            Ausleihe a{personenName, mediumTitel};
             ausleihen.push_back(a);
         }
     }
@@ -27,27 +25,25 @@ bool AusleihManager::speichereAusleihenInDatei(const std::vector<Ausleihe> &ausl
     std::ofstream datei(pfad);
     if (!datei.is_open()) return false;
 
-    for (const auto& a : ausleihen) {
-        datei << a.personenId << ";" << a.mediumId << "\n";
+    for (const auto &a : ausleihen) {
+        datei << a.personenName << ";" << a.mediumTitel << "\n";
     }
     return true;
 }
 
-void AusleihManager::fuegeAusleiheHinzu(std::vector<Ausleihe> &ausleihen, int personenId, int mediumId) {
-    ausleihen.push_back({personenId, mediumId});
+void AusleihManager::fuegeAusleiheHinzu(std::vector<Ausleihe> &ausleihen, const std::string &personenName, const std::string &mediumTitel) {
+    ausleihen.emplace_back(Ausleihe{personenName, mediumTitel});
 }
 
-void AusleihManager::entferneAusleihe(std::vector<Ausleihe> &ausleihen, int personenId, int mediumId) {
+void AusleihManager::entferneAusleihe(std::vector<Ausleihe> &ausleihen, const std::string &personenName, const std::string &mediumTitel) {
     ausleihen.erase(std::remove_if(ausleihen.begin(), ausleihen.end(),
-        [personenId, mediumId](const Ausleihe& a) {
-            return a.personenId == personenId && a.mediumId == mediumId;
-        }), ausleihen.end());
+                                  [&](const Ausleihe &a) {
+                                      return a.personenName == personenName && a.mediumTitel == mediumTitel;
+                                  }),
+                    ausleihen.end());
 }
 
-bool AusleihManager::istMediumAusgeliehen(const std::vector<Ausleihe>& ausleihen, int mediumId) {
-    for (const auto& a : ausleihen) {
-        if (a.mediumId == mediumId)
-            return true;
-    }
-    return false;
+bool AusleihManager::istMediumAusgeliehen(const std::vector<Ausleihe> &ausleihen, const std::string &mediumTitel) {
+    return std::any_of(ausleihen.begin(), ausleihen.end(),
+                       [&](const Ausleihe &a) { return a.mediumTitel == mediumTitel; });
 }

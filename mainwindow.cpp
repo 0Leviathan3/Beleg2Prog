@@ -29,17 +29,7 @@ MainWindow::MainWindow(const std::vector<Person>& personen, QWidget *parent)
     // ---------------------------
     auto *ausleihAnzeigeWidget = new AusleihAnzeige();
 
-    std::vector<Ausleihe> ausleihen = AusleihManager::ladeAusleihenAusDatei();
-    std::vector<Person> personenListe = Datenbank::lesePersonenAusDatei("../beispiel.txt");
-    std::vector<Medium*> medienPtr = Datenbank::leseMedienAusDatei("../mediumDb.txt");
-
-    // Übergabe der Zeiger, wie von setAusleihen erwartet
-    ausleihAnzeigeWidget->setAusleihen(ausleihen, personenListe, medienPtr);
-
-    // Speicher freigeben
-    for (auto* m : medienPtr) {
-        delete m;
-    }
+    // Übergabe der Zeiger, wie von setAusleihen erwartetWS
 
     // ---------------------------
     // Widgets hinzufügen
