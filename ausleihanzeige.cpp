@@ -1,102 +1,122 @@
 #include "ausleihanzeige.h"
-#include "ausleihdialog.h"
-#include "datenbank.h"
-#include "ausleihmanager.h"
-
 #include <QVBoxLayout>
-#include <QHBoxLayout>
-#include <QHeaderView>
 #include <QMessageBox>
+#include <QDebug>
+#include <fstream>
+#include <sstream>
+#include <QHeaderView>
 
 AusleihAnzeige::AusleihAnzeige(QWidget *parent)
     : QWidget(parent)
 {
-    tableWidget = new QTableWidget(this);
-    tableWidget->setColumnCount(2);
-    tableWidget->setHorizontalHeaderLabels({"Person", "Medium"});
-    tableWidget->horizontalHeader()->setStretchLastSection(true);
+    QVBoxLayout *layout = new QVBoxLayout(this);
 
-    addButton = new QPushButton("Hinzufügen", this);
-    deleteButton = new QPushButton("Entfernen", this);
+    ausleihTabelle = new QTableWidget(this);
+    ausleihTabelle->setColumnCount(2);
+    ausleihTabelle->setHorizontalHeaderLabels(QStringList() << "Person" << "Medium");
+    ausleihTabelle->horizontalHeader()->setStretchLastSection(true);
+    ausleihTabelle->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ausleihTabelle->setSelectionMode(QAbstractItemView::SingleSelection);
+    ausleihTabelle->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
-    connect(addButton, &QPushButton::clicked, this, [=]() {
-        AusleihDialog dialog(personen, medien, this);
-        if (dialog.exec() == QDialog::Accepted) {
-            std::vector<std::string> selectedPersonNamen = dialog.getAusgewaehltePersonen();
-            std::string selectedMediumTitel = dialog.getAusgewaehltesMedium();
+    hinzufuegenButton = new QPushButton("Hinzufügen", this);
+    loeschenButton = new QPushButton("Löschen", this);
 
-            for (const std::string &name : selectedPersonNamen) {
-                AusleihManager::fuegeAusleiheHinzu(aktuelleAusleihen, name, selectedMediumTitel);
-            }
+    layout->addWidget(ausleihTabelle);
+    layout->addWidget(hinzufuegenButton);
+    layout->addWidget(loeschenButton);
 
-            if (AusleihManager::speichereAusleihenInDatei(aktuelleAusleihen, "../ausleihen.txt")) {
-                setAusleihen(aktuelleAusleihen, personenObjekte, medien);  // Hier jetzt personenObjekte als const std::vector<Person>&
-            } else {
-                QMessageBox::warning(this, "Fehler", "Speichern der Ausleihen fehlgeschlagen.");
-            }
-        }
-    });
+    connect(hinzufuegenButton, &QPushButton::clicked, this, &AusleihAnzeige::hinzufuegenGeklickt);
+    connect(loeschenButton, &QPushButton::clicked, this, &AusleihAnzeige::loeschenGeklickt);
 
-    connect(deleteButton, &QPushButton::clicked, this, [=]() {
-        std::vector<int> zeilen = getAusgewaehlteZeilen();
-        for (int i = zeilen.size() - 1; i >= 0; --i) {
-            QString person = tableWidget->item(zeilen[i], 0)->text();
-            QString medium = tableWidget->item(zeilen[i], 1)->text();
-            AusleihManager::entferneAusleihe(aktuelleAusleihen, person.toStdString(), medium.toStdString());
-        }
-
-        if (AusleihManager::speichereAusleihenInDatei(aktuelleAusleihen, "../ausleihen.txt")) {
-            setAusleihen(aktuelleAusleihen, personenObjekte, medien);
-        } else {
-            QMessageBox::warning(this, "Fehler", "Speichern der Ausleihen fehlgeschlagen.");
-        }
-    });
-
-    QHBoxLayout *buttonLayout = new QHBoxLayout;
-    buttonLayout->addWidget(addButton);
-    buttonLayout->addWidget(deleteButton);
-
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
-    mainLayout->addWidget(tableWidget);
-    mainLayout->addLayout(buttonLayout);
-    setLayout(mainLayout);
+    ladeAusleihen();
 }
 
-// Nehme an, du hast irgendwo einen Vektor mit Person-Objekten
-// Den brauchst du, um aus ihm die Zeiger für 'personen' zu bauen
-// Zum Beispiel in der Header-Datei:
-// std::vector<Person> personenObjekte;
-
-void AusleihAnzeige::setAusleihen(const std::vector<Ausleihe> &ausleihen,
-                                  const std::vector<Person> &personenObjekte,
-                                  const std::vector<Medium*> &medien)
+void AusleihAnzeige::ladeAusleihen()
 {
-    this->aktuelleAusleihen = ausleihen;
-    this->medien = medien;
-
-    // Personen-Zeiger aktualisieren
     personen.clear();
-    for (const Person &p : personenObjekte) {
-        personen.push_back(const_cast<Person*>(&p));
+    medien.clear();
+
+    std::ifstream file("../ausleihen.txt");
+    if (!file.is_open()) {
+        QMessageBox::warning(this, "Fehler", "Kann Datei ausleihen.txt nicht öffnen.");
+        return;
     }
 
-    tableWidget->setRowCount(0);
-    for (const Ausleihe &ausleihe : ausleihen) {
-        int row = tableWidget->rowCount();
-        tableWidget->insertRow(row);
-        tableWidget->setItem(row, 0, new QTableWidgetItem(QString::fromStdString(ausleihe.personenName)));
-        tableWidget->setItem(row, 1, new QTableWidgetItem(QString::fromStdString(ausleihe.mediumTitel)));
+    std::string line;
+    while (std::getline(file, line)) {
+        std::istringstream iss(line);
+        std::string person, medium;
+
+        // Beispiel: Datei-Zeile "Max Mustermann;Harry Potter"
+        if (std::getline(iss, person, ';') && std::getline(iss, medium)) {
+            personen.push_back(person);
+            medien.push_back(medium);
+        }
+    }
+
+    file.close();
+
+    aktualisiereTabelle();
+}
+
+void AusleihAnzeige::aktualisiereTabelle()
+{
+    ausleihTabelle->setRowCount(static_cast<int>(personen.size()));
+
+    for (size_t i = 0; i < personen.size(); ++i) {
+        ausleihTabelle->setItem(int(i), 0, new QTableWidgetItem(QString::fromStdString(personen[i])));
+        ausleihTabelle->setItem(int(i), 1, new QTableWidgetItem(QString::fromStdString(medien[i])));
     }
 }
 
-std::vector<int> AusleihAnzeige::getAusgewaehlteZeilen() const
+void AusleihAnzeige::hinzufuegenGeklickt()
 {
-    std::vector<int> zeilen;
-    QList<QTableWidgetItem*> selectedItems = tableWidget->selectedItems();
-    for (QTableWidgetItem *item : selectedItems) {
-        int row = item->row();
-        if (std::find(zeilen.begin(), zeilen.end(), row) == zeilen.end())
-            zeilen.push_back(row);
+    // Hier deine bestehende Logik zum Hinzufügen, danach:
+    ladeAusleihen();  // Tabelle aktualisieren
+}
+
+void AusleihAnzeige::loeschenGeklickt()
+{
+    auto items = ausleihTabelle->selectedItems();
+    if (items.isEmpty()) {
+        QMessageBox::warning(this, "Löschen", "Bitte zuerst eine Ausleihe auswählen.");
+        return;
     }
-    return zeilen;
+
+    int row = ausleihTabelle->row(items[0]);
+
+    if (row < 0 || row >= static_cast<int>(personen.size()))
+        return;
+
+    // Datei neu schreiben ohne die gelöschte Zeile
+    std::ifstream fileIn("../ausleihen.txt");
+    if (!fileIn.is_open()) {
+        QMessageBox::warning(this, "Fehler", "Kann Datei ausleihen.txt nicht öffnen.");
+        return;
+    }
+
+    std::vector<std::string> lines;
+    std::string line;
+    int currentLine = 0;
+    while (std::getline(fileIn, line)) {
+        if (currentLine != row) {
+            lines.push_back(line);
+        }
+        currentLine++;
+    }
+    fileIn.close();
+
+    std::ofstream fileOut("../ausleihen.txt", std::ios::trunc);
+    if (!fileOut.is_open()) {
+        QMessageBox::warning(this, "Fehler", "Kann Datei ausleihen.txt nicht schreiben.");
+        return;
+    }
+
+    for (const auto& l : lines) {
+        fileOut << l << "\n";
+    }
+    fileOut.close();
+
+    ladeAusleihen();  // Tabelle neu laden
 }

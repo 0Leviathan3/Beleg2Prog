@@ -1,3 +1,4 @@
+
 #ifndef PERSON_H
 #define PERSON_H
 
@@ -5,6 +6,7 @@
 
 class Person {
 public:
+    Person() : name(""), age(0), id(-1) {}
     Person(std::string name, int age, int id = -1); 
     Person(const Person& other);
     void displayInfo() const;
@@ -18,7 +20,7 @@ private:
     std::string name;
     int age;
     int id;
-    static int nextId;  // <-- unbedingt `static`!
+    static int nextId; 
 };
 
 #endif // PERSON_H

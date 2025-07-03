@@ -23,17 +23,8 @@ MainWindow::MainWindow(const std::vector<Person>& personen, QWidget *parent)
     auto *eingabeWidget = new eingabe();
     auto *ausgabeWidget = new ausgabetabelle();
     ausgabeWidget->setPersonen(personen);
-
-    // ---------------------------
-    // Ausleihen + Daten laden
-    // ---------------------------
     auto *ausleihAnzeigeWidget = new AusleihAnzeige();
-
-    // Übergabe der Zeiger, wie von setAusleihen erwartetWS
-
-    // ---------------------------
-    // Widgets hinzufügen
-    // ---------------------------
+    
     QWidget *startWidget = new QWidget();
     QVBoxLayout *startLayout = new QVBoxLayout(startWidget);
     QLabel *label = new QLabel("Willkommen zur Medienbibliothek!", startWidget);

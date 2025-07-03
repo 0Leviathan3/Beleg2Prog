@@ -1,35 +1,42 @@
-#ifndef AUSLEIHDIALOG_H
-#define AUSLEIHDIALOG_H
+#ifndef AUSWAHLDIALOG_H
+#define AUSWAHLDIALOG_H
 
 #include <QDialog>
 #include <QTableWidget>
+#include <QPushButton>
 #include <QStackedWidget>
-#include <vector>
-#include <string>
-#include "person.h"
+#include "datenbank.h"
 #include "medium.h"
+#include "person.h"
 
-class AusleihDialog : public QDialog
+class AuswahlDialog : public QDialog
 {
     Q_OBJECT
-public:
-    explicit AusleihDialog(const std::vector<Person*>& personen,
-                           const std::vector<Medium*>& medien,
-                           QWidget *parent = nullptr);
 
-    std::vector<std::string> getAusgewaehltePersonen() const;
-    std::string getAusgewaehltesMedium() const;
+public:
+    explicit AuswahlDialog(QWidget *parent = nullptr);
+
+    Medium* getAusgewaehltesMedium() const;
+    Person getAusgewaehltePerson() const;
 
 private slots:
-    void bestaetigen();
+    void weiter();       // Wechsel von Medien zu Personen
+    void bestaetigen();  // Auswahl bestätigen
 
 private:
-    QStackedWidget *stackedWidget;
-    QTableWidget *personenTabelle;
-    QTableWidget *medienTabelle;
+    QStackedWidget* stackedWidget;
 
-    std::vector<std::string> selectedPersonNamen;
-    std::string selectedMediumTitel;
+    QTableWidget* medienTabelle;
+    QTableWidget* personenTabelle;
+
+    QPushButton* weiterButton;
+    QPushButton* bestaetigenButton;
+
+    std::vector<Medium*> medien;
+    std::vector<Person> personen;
+
+    Medium* ausgewaehltesMedium = nullptr;
+    Person ausgewaehltePerson;
 };
 
-#endif // AUSLEIHDIALOG_H
+#endif // AUSWAHLDIALOG_H

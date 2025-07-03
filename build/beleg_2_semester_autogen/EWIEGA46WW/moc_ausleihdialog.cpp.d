@@ -1,5 +1,6 @@
 /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/build/beleg_2_semester_autogen/EWIEGA46WW/moc_ausleihdialog.cpp: /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/ausleihdialog.h \
   /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/build/beleg_2_semester_autogen/moc_predefs.h \
+  /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/datenbank.h \
   /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/medium.h \
   /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/person.h \
   /usr/include/alloca.h \
@@ -398,8 +399,10 @@
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qvalidator.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qwindowdefs.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QDialog \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QPushButton \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QStackedWidget \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTableWidget \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractbutton.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractitemdelegate.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractitemview.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractscrollarea.h \
@@ -407,6 +410,7 @@
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractspinbox.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdialog.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qframe.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qpushbutton.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qrubberband.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qsizepolicy.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qslider.h \

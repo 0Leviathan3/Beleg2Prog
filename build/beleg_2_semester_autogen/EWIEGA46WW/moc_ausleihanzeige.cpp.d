@@ -1,8 +1,5 @@
 /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/build/beleg_2_semester_autogen/EWIEGA46WW/moc_ausleihanzeige.cpp: /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/ausleihanzeige.h \
   /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/build/beleg_2_semester_autogen/moc_predefs.h \
-  /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/ausleihmanager.h \
-  /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/medium.h \
-  /home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/person.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
