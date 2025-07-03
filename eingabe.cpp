@@ -18,10 +18,10 @@ eingabe::eingabe(QWidget *parent)
 
     auto *mainLayout = new QVBoxLayout(this);
 
-    // Tabelle mit 5 Spalten: Checkbox, Titel, Autor/Regisseur, ISBN/FSK, Ausgeliehen
+    // Tabelle mit 4 Spalten: Checkbox, Titel, Autor/Regisseur, ISBN/FSK
     tableWidget = new QTableWidget(this);
-    tableWidget->setColumnCount(5);
-    tableWidget->setHorizontalHeaderLabels(QStringList() << "" << "Titel" << "Autor/Regisseur" << "ISBN/FSK" << "Ausgeliehen");
+    tableWidget->setColumnCount(4);
+    tableWidget->setHorizontalHeaderLabels(QStringList() << "" << "Titel" << "Autor/Regisseur" << "ISBN/FSK");
     tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
@@ -59,8 +59,8 @@ eingabe::~eingabe() {
 
 void eingabe::aktualisiereTabelle() {
     tableWidget->setRowCount(static_cast<int>(medien.size()));
-    tableWidget->setColumnCount(5);
-    tableWidget->setHorizontalHeaderLabels(QStringList() << "" << "Titel" << "Autor/Regisseur" << "ISBN/FSK" << "Ausgeliehen");
+    tableWidget->setColumnCount(4);
+    tableWidget->setHorizontalHeaderLabels(QStringList() << "" << "Titel" << "Autor/Regisseur" << "ISBN/FSK");
 
     for (int i = 0; i < static_cast<int>(medien.size()); ++i) {
         // Checkbox
@@ -76,30 +76,26 @@ void eingabe::aktualisiereTabelle() {
         // Titel
         tableWidget->setItem(i, 1, new QTableWidgetItem(QString::fromStdString(medien[i]->getTitle())));
 
-        // Autor/Regisseur, ISBN/FSK, Ausgeliehen
+        // Autor/Regisseur, ISBN/FSK
         QString personStr = "n/a";
         QString idStr = "n/a";
-        QString ausgeliehenStr = "Nein";
 
         if (medien[i]->gettype() == "Book") {
             auto buch = dynamic_cast<book*>(medien[i]);
             if (buch) {
                 personStr = QString::fromStdString(buch->getAuthor());
                 idStr = QString::fromStdString(buch->getISBN());
-                ausgeliehenStr = buch->getAusgeliehen() ? "Ja" : "Nein";
             }
         } else if (medien[i]->gettype() == "BlueRay") {
             auto br = dynamic_cast<BlueRay*>(medien[i]);
             if (br) {
                 personStr = QString::fromStdString(br->getDirector());
                 idStr = QString::number(br->getFSK());
-                ausgeliehenStr = br->getAusgeliehen() ? "Ja" : "Nein";
             }
         }
 
         tableWidget->setItem(i, 2, new QTableWidgetItem(personStr));
         tableWidget->setItem(i, 3, new QTableWidgetItem(idStr));
-        tableWidget->setItem(i, 4, new QTableWidgetItem(ausgeliehenStr));
     }
 }
 
@@ -143,8 +139,6 @@ void eingabe::fuegeMediumHinzu(const QString &titel, const QString &person, cons
         return;
     }
 
-    neu->setAusgeliehen(false);  // Neu hinzugefügte Medien sind nicht ausgeliehen
-
     medien.push_back(neu);
 
     // Neue Zeile in Tabelle hinzufügen
@@ -163,9 +157,6 @@ void eingabe::fuegeMediumHinzu(const QString &titel, const QString &person, cons
     tableWidget->setItem(row, 1, new QTableWidgetItem(titel));
     tableWidget->setItem(row, 2, new QTableWidgetItem(person));
     tableWidget->setItem(row, 3, new QTableWidgetItem(id));
-    tableWidget->setItem(row, 4, new QTableWidgetItem("Nein"));  // Ausgeliehen = Nein
-
-    speichereMedien();  // Daten in Datei speichern
 }
 
 void eingabe::speichereMedien() {
