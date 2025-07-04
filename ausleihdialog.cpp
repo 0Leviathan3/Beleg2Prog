@@ -68,16 +68,25 @@ void AuswahlDialog::weiter()
         int row = medienTabelle->row(items[0]);
         ausgewaehltesMedium = medien[row];
     } else {
-        // Falls nichts gewählt, Medium auf nullptr setzen
         ausgewaehltesMedium = nullptr;
+        QMessageBox::warning(this, "Fehler", "Bitte ein Medium auswählen.");
+        return;
     }
 
-    // Personen laden
+    // Ausleihen laden
+    std::vector<Ausleihe> ausleihen = AusleihManager::ladeAusleihenAusDatei("../ausleihen.txt");
+
+    // Prüfen, ob Medium bereits ausgeliehen ist
+    if (AusleihManager::istMediumAusgeliehen(ausleihen, ausgewaehltesMedium->getTitle())) {
+        QMessageBox::warning(this, "Fehler", "Dieses Medium ist bereits ausgeliehen. Bitte wähle ein anderes Medium.");
+        return; // Nicht weiter zur Personen-Auswahl
+    }
+
+    // Personen laden und Tabelle füllen
     Datenbank db;
     personen = db.lesePersonenAusDatei("../beispiel.txt");
 
     personenTabelle->setRowCount(static_cast<int>(personen.size()));
-
     for (int i = 0; i < static_cast<int>(personen.size()); ++i) {
         personenTabelle->setItem(i, 0, new QTableWidgetItem(QString::fromStdString(personen[i].getName())));
         personenTabelle->setItem(i, 1, new QTableWidgetItem(QString::number(personen[i].getAge())));
@@ -86,6 +95,7 @@ void AuswahlDialog::weiter()
     // Zur Personen-Ansicht wechseln
     stackedWidget->setCurrentWidget(personenTabelle);
 }
+
 
 Medium* AuswahlDialog::getAusgewaehltesMedium() const
 {
@@ -96,6 +106,7 @@ Person AuswahlDialog::getAusgewaehltePerson() const
 {
     return ausgewaehltePerson;
 }
+
 void AuswahlDialog::bestaetigen()
 {
     // Ausgewählte Person speichern
@@ -109,12 +120,6 @@ void AuswahlDialog::bestaetigen()
 
     if (ausgewaehltesMedium && !ausgewaehltePerson.getName().empty()) {
         std::vector<Ausleihe> ausleihen = AusleihManager::ladeAusleihenAusDatei("../ausleihen.txt");
-
-        // Prüfen, ob Medium bereits ausgeliehen ist
-        if (AusleihManager::istMediumAusgeliehen(ausleihen, ausgewaehltesMedium->getTitle())) {
-            QMessageBox::warning(this, "Fehler", "Dieses Medium ist bereits ausgeliehen.");
-            return; // nicht weitermachen
-        }
 
         // Medium ausleihen (Hinzufügen)
         AusleihManager::fuegeAusleiheHinzu(

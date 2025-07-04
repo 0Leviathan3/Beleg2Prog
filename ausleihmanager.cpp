@@ -14,8 +14,7 @@ std::vector<Ausleihe> AusleihManager::ladeAusleihenAusDatei(const std::string &p
         std::string personenName, mediumTitel;
 
         if (std::getline(iss, personenName, ';') && std::getline(iss, mediumTitel)) {
-            Ausleihe a{personenName, mediumTitel};
-            ausleihen.push_back(a);
+            ausleihen.push_back({personenName, mediumTitel});
         }
     }
     return ausleihen;
@@ -32,18 +31,19 @@ bool AusleihManager::speichereAusleihenInDatei(const std::vector<Ausleihe> &ausl
 }
 
 void AusleihManager::fuegeAusleiheHinzu(std::vector<Ausleihe> &ausleihen, const std::string &personenName, const std::string &mediumTitel) {
-    ausleihen.emplace_back(Ausleihe{personenName, mediumTitel});
+    ausleihen.push_back({personenName, mediumTitel});
 }
 
 void AusleihManager::entferneAusleihe(std::vector<Ausleihe> &ausleihen, const std::string &personenName, const std::string &mediumTitel) {
     ausleihen.erase(std::remove_if(ausleihen.begin(), ausleihen.end(),
-                                  [&](const Ausleihe &a) {
-                                      return a.personenName == personenName && a.mediumTitel == mediumTitel;
-                                  }),
-                    ausleihen.end());
+        [&](const Ausleihe &a) {
+            return a.personenName == personenName && a.mediumTitel == mediumTitel;
+        }), ausleihen.end());
 }
 
+// Wichtig: Direktprüfung aus Datei (nicht über Liste!)
 bool AusleihManager::istMediumAusgeliehen(const std::vector<Ausleihe> &ausleihen, const std::string &mediumTitel) {
     return std::any_of(ausleihen.begin(), ausleihen.end(),
                        [&](const Ausleihe &a) { return a.mediumTitel == mediumTitel; });
 }
+

@@ -66,9 +66,9 @@ include CMakeFiles/beleg_2_semester_autogen_timestamp_deps.dir/compiler_depend.m
 # Include the progress variables for this target.
 include CMakeFiles/beleg_2_semester_autogen_timestamp_deps.dir/progress.make
 
-CMakeFiles/beleg_2_semester_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.4.2
 CMakeFiles/beleg_2_semester_autogen_timestamp_deps: /usr/lib/qt6/libexec/uic
 CMakeFiles/beleg_2_semester_autogen_timestamp_deps: /usr/lib/qt6/libexec/moc
+CMakeFiles/beleg_2_semester_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.4.2
 
 beleg_2_semester_autogen_timestamp_deps: CMakeFiles/beleg_2_semester_autogen_timestamp_deps
 beleg_2_semester_autogen_timestamp_deps: CMakeFiles/beleg_2_semester_autogen_timestamp_deps.dir/build.make

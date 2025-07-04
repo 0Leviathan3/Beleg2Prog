@@ -1,4 +1,6 @@
 #include "ausleihanzeige.h"
+#include "ausleihdialog.h"  
+#include "ausleihmanager.h"
 #include <QVBoxLayout>
 #include <QMessageBox>
 #include <QDebug>
@@ -70,11 +72,6 @@ void AusleihAnzeige::aktualisiereTabelle()
     }
 }
 
-void AusleihAnzeige::hinzufuegenGeklickt()
-{
-    // Hier deine bestehende Logik zum Hinzufügen, danach:
-    ladeAusleihen();  // Tabelle aktualisieren
-}
 
 void AusleihAnzeige::loeschenGeklickt()
 {
@@ -119,4 +116,11 @@ void AusleihAnzeige::loeschenGeklickt()
     fileOut.close();
 
     ladeAusleihen();  // Tabelle neu laden
+}
+void AusleihAnzeige::hinzufuegenGeklickt() {
+    AuswahlDialog dialog(this);
+    if (dialog.exec() == QDialog::Accepted) {
+        // Ausleihe wurde im Dialog schon gespeichert
+        ladeAusleihen();  // Tabelle aktualisieren
+    }
 }
