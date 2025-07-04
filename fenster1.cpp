@@ -3,6 +3,7 @@
 #include <QLabel>
 #include <QVBoxLayout>
 #include <QLineEdit>
+#include <QMessageBox>
 
 Fenster1::Fenster1(QWidget *parent)
     : QWidget(parent)
@@ -42,9 +43,21 @@ void Fenster1::leereFelder() {
 }
 void Fenster1::sendePerson() {
     QString name = feld1->text();
-    int alter = feld2->text().toInt();  // Optional: Validierung einbauen
+    QString alterStr = feld2->text();
 
-    if (!name.isEmpty()) {
-        emit personHinzugefuegt(name, alter);
+    if (name.isEmpty()) {
+        QMessageBox::warning(this, "Fehler", "Bitte einen Namen eingeben.");
+        return;
     }
+
+    bool ok;
+    int alter = alterStr.toInt(&ok);  
+
+    if (!ok) {
+        QMessageBox::warning(this, "Fehler", "Bitte eine gültige ganze Zahl für das Alter eingeben.");
+        return;
+    }
+
+    emit personHinzugefuegt(name, alter);
 }
+

@@ -381,6 +381,4 @@ CMakeFiles/beleg_2_semester.dir/mainwindow.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qpicture.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qiodevice.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextdocument.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qurl.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QDialogButtonBox \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdialogbuttonbox.h
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qurl.h

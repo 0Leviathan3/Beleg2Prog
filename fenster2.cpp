@@ -74,6 +74,15 @@ void Fenster2::sendePerson()
         return;
     }
 
+    // Prüfe, ob id nur aus Zahlen besteht (für ISBN oder FSK)
+    bool ok;
+    int nummer = id.toInt(&ok);
+    if (!ok) {
+        QString feldName = (typ == "Book") ? "ISBN" : "FSK";
+        QMessageBox::warning(this, "Fehler", QString("Bitte nur Zahlen für %1 eingeben.").arg(feldName));
+        return;
+    }
+
     emit mediumHinzugefuegt(titel, person, id, typ, verfuegbar);
     close();
 }

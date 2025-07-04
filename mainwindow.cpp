@@ -11,7 +11,6 @@
 #include <QPushButton>
 #include <QStackedWidget>
 #include <QLabel>
-#include <QDialogButtonBox>
 
 MainWindow::MainWindow(const std::vector<Person>& personen, QWidget *parent)
     : QMainWindow(parent)
@@ -19,18 +18,34 @@ MainWindow::MainWindow(const std::vector<Person>& personen, QWidget *parent)
     QWidget *centralWidget = new QWidget(this);
     QVBoxLayout *layout = new QVBoxLayout(centralWidget);
 
+    // Stack-Widget für verschiedene Seiten
     auto *stackwidget = new QStackedWidget(this);
     auto *eingabeWidget = new eingabe();
     auto *ausgabeWidget = new ausgabetabelle();
     ausgabeWidget->setPersonen(personen);
     auto *ausleihAnzeigeWidget = new AusleihAnzeige();
     
+    // Startseite mit Willkommen und Erklärungstext
     QWidget *startWidget = new QWidget();
     QVBoxLayout *startLayout = new QVBoxLayout(startWidget);
+
     QLabel *label = new QLabel("Willkommen zur Medienbibliothek!", startWidget);
     label->setAlignment(Qt::AlignCenter);
     startLayout->addWidget(label);
 
+    // Erklärungstext zu den Buttons (Stichpunkte)
+    QString erklaerung = 
+        "• Hauptmenü: Zurück zur Startseite\n"
+        "• Medien Anzeige: Übersicht aller Medien\n"
+        "• Personen: Verwaltung der Personen\n"
+        "• Ausleihen: Übersicht der Ausleihen";
+
+    QLabel *erklaerungsLabel = new QLabel(erklaerung, startWidget);
+    erklaerungsLabel->setAlignment(Qt::AlignLeft);
+    erklaerungsLabel->setStyleSheet("font-size: 12pt; padding: 10px;"); // Optionales Styling
+    startLayout->addWidget(erklaerungsLabel);
+
+    // Widgets zum Stack hinzufügen
     stackwidget->addWidget(startWidget);           // Index 0
     stackwidget->addWidget(eingabeWidget);         // Index 1
     stackwidget->addWidget(ausgabeWidget);         // Index 2
@@ -38,6 +53,7 @@ MainWindow::MainWindow(const std::vector<Person>& personen, QWidget *parent)
 
     layout->addWidget(stackwidget);
 
+    // Buttons
     btn1 = new QPushButton("Hauptmenü", this);
     btn2 = new QPushButton("Medien Anzeige", this);
     btn3 = new QPushButton("Personen", this);
@@ -48,7 +64,7 @@ MainWindow::MainWindow(const std::vector<Person>& personen, QWidget *parent)
     layout->addWidget(btn3);
     layout->addWidget(btn4);
 
-    // Verbindungen
+    // Button-Clicks mit Stack-Widget steuern (Capture stackwidget)
     connect(btn1, &QPushButton::clicked, this, [stackwidget]() {
         stackwidget->setCurrentIndex(0);
     });
