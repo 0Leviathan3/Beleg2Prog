@@ -22,7 +22,7 @@ AusleihAnzeige::AusleihAnzeige(QWidget *parent)
     ausleihTabelle->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     hinzufuegenButton = new QPushButton("Hinzufügen", this);
-    loeschenButton = new QPushButton("Löschen", this);
+    loeschenButton = new QPushButton("Zurückgeben", this);
 
     layout->addWidget(ausleihTabelle);
     layout->addWidget(hinzufuegenButton);
@@ -50,7 +50,7 @@ void AusleihAnzeige::ladeAusleihen()
         std::istringstream iss(line);
         std::string person, medium;
 
-        // Beispiel: Datei-Zeile "Max Mustermann;Harry Potter"
+        
         if (std::getline(iss, person, ';') && std::getline(iss, medium)) {
             personen.push_back(person);
             medien.push_back(medium);

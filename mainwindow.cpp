@@ -36,8 +36,8 @@ MainWindow::MainWindow(const std::vector<Person>& personen, QWidget *parent)
     // Erklärungstext zu den Buttons (Stichpunkte)
     QString erklaerung = 
         "• Hauptmenü: Zurück zur Startseite\n"
-        "• Medien Anzeige: Übersicht aller Medien\n"
-        "• Personen: Verwaltung der Personen\n"
+        "• Medien: Übersicht aller Medien\n"
+        "• Personen: Übersicht der Personen\n"
         "• Ausleihen: Übersicht der Ausleihen";
 
     QLabel *erklaerungsLabel = new QLabel(erklaerung, startWidget);
@@ -55,7 +55,7 @@ MainWindow::MainWindow(const std::vector<Person>& personen, QWidget *parent)
 
     // Buttons
     btn1 = new QPushButton("Hauptmenü", this);
-    btn2 = new QPushButton("Medien Anzeige", this);
+    btn2 = new QPushButton("Anzeige", this);
     btn3 = new QPushButton("Personen", this);
     btn4 = new QPushButton("Ausleihen", this);
 
