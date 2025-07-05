@@ -55,7 +55,7 @@ MainWindow::MainWindow(const std::vector<Person>& personen, QWidget *parent)
 
     // Buttons
     btn1 = new QPushButton("Hauptmenü", this);
-    btn2 = new QPushButton("Anzeige", this);
+    btn2 = new QPushButton("Medien", this);
     btn3 = new QPushButton("Personen", this);
     btn4 = new QPushButton("Ausleihen", this);
 

@@ -1,3 +1,7 @@
+/*Studeingruppe 24/041/63
+Levin Grune
+Matr Nr 56127 */
+
 #include "ausleihanzeige.h"
 #include "ausleihdialog.h"  
 #include "ausleihmanager.h"
@@ -12,7 +16,7 @@ AusleihAnzeige::AusleihAnzeige(QWidget *parent)
     : QWidget(parent)
 {
     QVBoxLayout *layout = new QVBoxLayout(this);
-
+//  tabelle für Ausleihen erstellen
     ausleihTabelle = new QTableWidget(this);
     ausleihTabelle->setColumnCount(2);
     ausleihTabelle->setHorizontalHeaderLabels(QStringList() << "Person" << "Medium");
@@ -20,14 +24,14 @@ AusleihAnzeige::AusleihAnzeige(QWidget *parent)
     ausleihTabelle->setSelectionBehavior(QAbstractItemView::SelectRows);
     ausleihTabelle->setSelectionMode(QAbstractItemView::SingleSelection);
     ausleihTabelle->setEditTriggers(QAbstractItemView::NoEditTriggers);
-
+// Buttons für Hinzufügen und Löschen erstellen
     hinzufuegenButton = new QPushButton("Hinzufügen", this);
     loeschenButton = new QPushButton("Zurückgeben", this);
-
+// Layout für die Buttons erstellen
     layout->addWidget(ausleihTabelle);
     layout->addWidget(hinzufuegenButton);
     layout->addWidget(loeschenButton);
-
+// Verbinde die Buttons mit den entsprechenden Slots
     connect(hinzufuegenButton, &QPushButton::clicked, this, &AusleihAnzeige::hinzufuegenGeklickt);
     connect(loeschenButton, &QPushButton::clicked, this, &AusleihAnzeige::loeschenGeklickt);
 
@@ -72,7 +76,7 @@ void AusleihAnzeige::aktualisiereTabelle()
     }
 }
 
-
+//funktion zum löschen 
 void AusleihAnzeige::loeschenGeklickt()
 {
     auto items = ausleihTabelle->selectedItems();

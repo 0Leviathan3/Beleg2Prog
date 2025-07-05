@@ -1,3 +1,7 @@
+/*Studeingruppe 24/041/63
+Levin Grune
+Matr Nr 56127 */
+
 #ifndef AUSGABETABELLE_H
 #define AUSGABETABELLE_H
 

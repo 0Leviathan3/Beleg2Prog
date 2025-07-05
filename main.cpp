@@ -3,7 +3,6 @@
 #include <vector>
 #include "medium.h"
 #include "book.h"
-#include "CD.h"
 #include "BlueRay.h"
 #include "person.h"
 #include "datenbank.h"
@@ -18,19 +17,9 @@ using namespace std;
 int main(int argc, char *argv[]) {
     cout << "Welcome to the Media Library!" << endl;
 
-    // Create two objects of class Book
-    //book book1("The Hobbit", 234, "J.R.R. Tolkien");
-    //book book2("1984", 400, "George Orwell");
-
-    // Create two objects of class CD
-    //CD cd1("The Beatles", "Abbey Road", "Abbey Road");
-    //CD cd2("Michael Jackson", "Thriller", "Thriller");
-
 
     std::vector<Person> personen = Datenbank::lesePersonenAusDatei("../beispiel.txt");
     std::vector<Medium*> medien;
-    BlueRay blueRay1("Inception","Goethe", 12);
-    BlueRay blueRay2("The Matrix"," bla", 18);
 
     QApplication app(argc, argv);
 
