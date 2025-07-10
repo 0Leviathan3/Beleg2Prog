@@ -76,20 +76,11 @@ Die Anwendung nutzt ein `QStackedWidget`, um zwischen folgenden Seiten zu wechse
 - Auf **„Ausgewählte löschen“** klicken.  
 - Das Medium wird entfernt und die Tabelle wird aktualisiert.
 
-
-
-## Installation und Kompilierung
-
-1. Qt (Version 6 empfohlen) installieren: [https://www.qt.io/download](https://www.qt.io/download)  
-2. Projekt klonen oder Dateien herunterladen  
-3. Projekt in Qt Creator öffnen  
-4. Build & Run starten  
-
-Alternativ über CMake und Kommandozeile:
+CMake und Kommandozeile:
 
 ```bash
-mkdir build
 cd build
 cmake ..
 make
-./Medienbibliothek
+./beleg_2_semester
+

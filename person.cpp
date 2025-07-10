@@ -1,3 +1,6 @@
+/*Studeingruppe 24/041/63
+Levin Grune
+Matr Nr 56127 */
 
 #include <iostream>
 using namespace std;

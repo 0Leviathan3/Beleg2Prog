@@ -1,3 +1,7 @@
+/*Studeingruppe 24/041/63
+Levin Grune
+Matr Nr 56127 */
+
 #ifndef FENSTER2_H
 #define FENSTER2_H
 

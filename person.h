@@ -1,3 +1,6 @@
+/*Studeingruppe 24/041/63
+Levin Grune
+Matr Nr 56127 */
 
 #ifndef PERSON_H
 #define PERSON_H

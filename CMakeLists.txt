@@ -15,7 +15,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 add_executable(beleg_2_semester
             main.cpp
             person.cpp 
-            CD.cpp 
             book.cpp 
             BlueRay.cpp 
             medium.cpp 

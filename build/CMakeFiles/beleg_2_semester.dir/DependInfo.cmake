@@ -10,7 +10,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "" "beleg_2_semester_autogen/timestamp" "custom" "beleg_2_semester_autogen/deps"
   "/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/BlueRay.cpp" "CMakeFiles/beleg_2_semester.dir/BlueRay.cpp.o" "gcc" "CMakeFiles/beleg_2_semester.dir/BlueRay.cpp.o.d"
-  "/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/CD.cpp" "CMakeFiles/beleg_2_semester.dir/CD.cpp.o" "gcc" "CMakeFiles/beleg_2_semester.dir/CD.cpp.o.d"
   "/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/ausgabetabelle.cpp" "CMakeFiles/beleg_2_semester.dir/ausgabetabelle.cpp.o" "gcc" "CMakeFiles/beleg_2_semester.dir/ausgabetabelle.cpp.o.d"
   "/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/ausleihanzeige.cpp" "CMakeFiles/beleg_2_semester.dir/ausleihanzeige.cpp.o" "gcc" "CMakeFiles/beleg_2_semester.dir/ausleihanzeige.cpp.o.d"
   "/home/sungjinwoo/infStudi/prog/semester2/beleg_2_semester/ausleihdialog.cpp" "CMakeFiles/beleg_2_semester.dir/ausleihdialog.cpp.o" "gcc" "CMakeFiles/beleg_2_semester.dir/ausleihdialog.cpp.o.d"

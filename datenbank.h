@@ -1,3 +1,7 @@
+/*Studeingruppe 24/041/63
+Levin Grune
+Matr Nr 56127 */
+
 #ifndef DATENBANK_H
 #define DATENBANK_H
 

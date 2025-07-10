@@ -1,3 +1,7 @@
+/*Studeingruppe 24/041/63
+Levin Grune
+Matr Nr 56127 */
+
 #include "fenster2.h"
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -13,16 +17,17 @@ Fenster2::Fenster2(QWidget *parent)
     feld1 = new QLineEdit(this); // Titel
     feld3 = new QLineEdit(this); // Autor/Regisseur
     feld4 = new QLineEdit(this); // ISBN/FSK
-
+// Erstellen der Eingabefelder
     comboBox = new QComboBox(this);
     comboBox->addItem("Book");
     comboBox->addItem("BlueRay");
-
+    comboBox->setCurrentIndex(0); // Standardmäßig "Book" auswählen 
+// Erstellen der Buttons
     neuhinzufuegen = new QPushButton("Hinzufügen", this);
     clearButton = new QPushButton("Leeren", this);
 
     auto *layout = new QVBoxLayout(this);
-
+// Hinzufügen der Widgets zum Layout
     layout->addWidget(comboBox);
     layout->addWidget(feld1);
     layout->addWidget(feld3);
@@ -32,7 +37,7 @@ Fenster2::Fenster2(QWidget *parent)
     buttonLayout->addWidget(neuhinzufuegen);
     buttonLayout->addWidget(clearButton);
     layout->addLayout(buttonLayout);
-
+// Verbinden der Signale und Slots
     connect(neuhinzufuegen, &QPushButton::clicked, this, &Fenster2::sendePerson);
     connect(clearButton, &QPushButton::clicked, this, &Fenster2::leereFelder);
     connect(comboBox, &QComboBox::currentTextChanged, this, &Fenster2::aktualisiereFelder);
@@ -47,7 +52,7 @@ void Fenster2::leereFelder()
     feld3->clear();
     feld4->clear();
 }
-
+// Diese Methode aktualisiert die Platzhaltertexte der Eingabefelder basierend auf dem ausgewählten Medium
 void Fenster2::aktualisiereFelder(const QString &typ)
 {
     if (typ == "Book") {
@@ -60,7 +65,7 @@ void Fenster2::aktualisiereFelder(const QString &typ)
         feld4->setPlaceholderText("FSK");
     }
 }
-
+// // Diese Methode sendet die eingegebenen Daten als Signal
 void Fenster2::sendePerson()
 {
     QString titel = feld1->text();
@@ -74,7 +79,7 @@ void Fenster2::sendePerson()
         return;
     }
 
-    // Prüfe, ob id nur aus Zahlen besteht (für ISBN oder FSK)
+    // Prüfe, ob die eingabe nur aus Zahlen besteht (für ISBN oder FSK)
     bool ok;
     int nummer = id.toInt(&ok);
     if (!ok) {

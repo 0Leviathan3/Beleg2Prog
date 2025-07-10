@@ -179,30 +179,6 @@ BlueRay.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/BlueRay.cpp.s
 .PHONY : BlueRay.cpp.s
 
-CD.o: CD.cpp.o
-.PHONY : CD.o
-
-# target to build an object file
-CD.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/CD.cpp.o
-.PHONY : CD.cpp.o
-
-CD.i: CD.cpp.i
-.PHONY : CD.i
-
-# target to preprocess a source file
-CD.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/CD.cpp.i
-.PHONY : CD.cpp.i
-
-CD.s: CD.cpp.s
-.PHONY : CD.s
-
-# target to generate assembly for a file
-CD.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/beleg_2_semester.dir/build.make CMakeFiles/beleg_2_semester.dir/CD.cpp.s
-.PHONY : CD.cpp.s
-
 ausgabetabelle.o: ausgabetabelle.cpp.o
 .PHONY : ausgabetabelle.o
 
@@ -553,9 +529,6 @@ help:
 	@echo "... BlueRay.o"
 	@echo "... BlueRay.i"
 	@echo "... BlueRay.s"
-	@echo "... CD.o"
-	@echo "... CD.i"
-	@echo "... CD.s"
 	@echo "... ausgabetabelle.o"
 	@echo "... ausgabetabelle.i"
 	@echo "... ausgabetabelle.s"

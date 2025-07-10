@@ -1,3 +1,7 @@
+/*Studeingruppe 24/041/63
+Levin Grune
+Matr Nr 56127 */
+
 // fenster1.cpp
 #include "fenster1.h"
 #include <QLabel>
@@ -36,11 +40,13 @@ Fenster1::Fenster1(QWidget *parent)
 
 
 }
+// Destructor
 void Fenster1::leereFelder() {
     feld1->clear();
     feld2->clear();
 
 }
+// Diese Methode sendet die eingegebenen Daten als Signal
 void Fenster1::sendePerson() {
     QString name = feld1->text();
     QString alterStr = feld2->text();

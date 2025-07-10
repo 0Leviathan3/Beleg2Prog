@@ -1,3 +1,7 @@
+/*Studeingruppe 24/041/63
+Levin Grune
+Matr Nr 56127 */
+
 #include "eingabe.h"
 #include "medium.h"
 #include "book.h"
@@ -50,13 +54,13 @@ eingabe::eingabe(QWidget *parent)
         fenster->show();
     });
 }
-
+// Destructor
 eingabe::~eingabe() {
     for (auto m : medien) {
         delete m;
     }
 }
-
+// Funktion zum Aktualisieren der Tabelle mit den Medien
 void eingabe::aktualisiereTabelle() {
     tableWidget->setRowCount(static_cast<int>(medien.size()));
     tableWidget->setColumnCount(4);
@@ -98,7 +102,7 @@ void eingabe::aktualisiereTabelle() {
         tableWidget->setItem(i, 3, new QTableWidgetItem(idStr));
     }
 }
-
+// Funktion zum Löschen der ausgewählten Zeilen in der Tabelle
 void eingabe::loescheAusgewaehlteZeilen() {
     std::vector<int> zeilenZuLoeschen;
     for (int i = 0; i < tableWidget->rowCount(); ++i) {
@@ -119,13 +123,13 @@ void eingabe::loescheAusgewaehlteZeilen() {
 
     speichereMedien();
 }
-
+// Funktion zum Hinzufügen eines neuen Mediums
 void eingabe::fuegeMediumHinzu(const QString &titel, const QString &person, const QString &id, const QString &typ)
 {
     Medium* neu = nullptr;
 
     if (typ == "Book") {
-        neu = new book(titel.toStdString(), id.toStdString(), person.toStdString());  // ISBN vor Autor
+        neu = new book(titel.toStdString(), id.toStdString(), person.toStdString()); 
     } else if (typ == "BlueRay") {
         bool ok;
         int fsk = id.toInt(&ok);

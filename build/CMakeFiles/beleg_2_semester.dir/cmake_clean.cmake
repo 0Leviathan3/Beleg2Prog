@@ -4,8 +4,6 @@ file(REMOVE_RECURSE
   "beleg_2_semester_autogen"
   "CMakeFiles/beleg_2_semester.dir/BlueRay.cpp.o"
   "CMakeFiles/beleg_2_semester.dir/BlueRay.cpp.o.d"
-  "CMakeFiles/beleg_2_semester.dir/CD.cpp.o"
-  "CMakeFiles/beleg_2_semester.dir/CD.cpp.o.d"
   "CMakeFiles/beleg_2_semester.dir/ausgabetabelle.cpp.o"
   "CMakeFiles/beleg_2_semester.dir/ausgabetabelle.cpp.o.d"
   "CMakeFiles/beleg_2_semester.dir/ausleihanzeige.cpp.o"
